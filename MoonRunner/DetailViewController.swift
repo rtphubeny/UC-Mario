@@ -6,10 +6,10 @@ class DetailViewController: UIViewController {
   var run: Run!
 
   @IBOutlet weak var mapView: MKMapView!
-  @IBOutlet weak var distanceLabel: UILabel!
+  @IBOutlet weak var coinsLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var timeLabel: UILabel!
-  @IBOutlet weak var paceLabel: UILabel!
+  @IBOutlet weak var distanceLabel: UILabel!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
 
   func configureView() {
     // let coinsQuantity = run.coins.doubleValue
-    distanceLabel.text = "Coins Collected -  0/15"
+    coinsLabel.text = "Coins Collected -  0/15"
 
     let dateFormatter = NSDateFormatter()
     dateFormatter.dateStyle = .MediumStyle
@@ -28,7 +28,8 @@ class DetailViewController: UIViewController {
     timeLabel.text = "Time - " + secondsQuantity.description
 
     let distanceQuantity = HKQuantity(unit: HKUnit.meterUnit(), doubleValue: run.distance.doubleValue)
-    paceLabel.text = "Distance Travelled - " + distanceQuantity.description
+    let distanceValue = distanceQuantity.doubleValueForUnit(HKUnit.meterUnit())
+    distanceLabel.text = "Distance Traveled- " + String.localizedStringWithFormat("%.2f%@", distanceValue, "m")
 
     loadMap()
   }
@@ -58,13 +59,13 @@ class DetailViewController: UIViewController {
   }
 
   func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer! {
-    if !overlay.isKindOfClass(MulticolorPolylineSegment) {
-      return nil
+    if !overlay.isKindOfClass(MKPolyline) {
+        return nil
     }
-
-    let polyline = overlay as! MulticolorPolylineSegment
+    
+    let polyline = overlay as! MKPolyline
     let renderer = MKPolylineRenderer(polyline: polyline)
-    renderer.strokeColor = polyline.color
+    renderer.strokeColor = appColor
     renderer.lineWidth = 3
     return renderer
   }
@@ -83,14 +84,13 @@ class DetailViewController: UIViewController {
 
   func loadMap() {
     if run.locations.count > 0 {
-      mapView.hidden = false
-
-      // Set the map bounds
-      mapView.region = mapRegion()
-
-      // Make the line(s!) on the map
-      let colorSegments = MulticolorPolylineSegment.colorSegments(forLocations: run.locations.array as! [Location])
-      mapView.addOverlays(colorSegments)
+        mapView.hidden = false
+        
+        // Set the map bounds
+        mapView.region = mapRegion()
+        
+        // Make the line(s!) on the map
+        mapView.addOverlay(polyline())
     } else {
       // No locations were found!
       mapView.hidden = true

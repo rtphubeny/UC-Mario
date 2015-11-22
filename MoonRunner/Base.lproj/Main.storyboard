@@ -207,10 +207,10 @@
             </objects>
             <point key="canvasLocation" x="1311" y="64"/>
         </scene>
-        <!--Detail-->
+        <!--Detail View Controller-->
         <scene sceneID="Cn3-H9-jdl">
             <objects>
-                <viewController title="Detail" id="Ah7-4n-0Wa" customClass="DetailViewController" customModule="MoonRunner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ah7-4n-0Wa" customClass="DetailViewController" customModule="MoonRunner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cIm-e0-J51"/>
                         <viewControllerLayoutGuide type="bottom" id="a0L-h9-sNL"/>
@@ -220,34 +220,34 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yF8-fr-X1f">
-                                <rect key="frame" x="0.0" y="64" width="600" height="250"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="400"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="XER-SO-NQB"/>
+                                    <constraint firstAttribute="height" constant="400" id="XER-SO-NQB"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="Ah7-4n-0Wa" id="GRR-pk-ZFW"/>
                                 </connections>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Route Taken" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8J-x5-27h">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Route Taken" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8J-x5-27h">
                                 <rect key="frame" x="250" y="324" width="147" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time - " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xw7-jA-vtN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Time - " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xw7-jA-vtN">
                                 <rect key="frame" x="16" y="415" width="55" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Coins Collected - " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4l-Bc-2yh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Coins Collected - " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4l-Bc-2yh">
                                 <rect key="frame" x="16" y="446" width="137" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-A2-7yQ">
-                                <rect key="frame" x="282" y="374" width="36" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-A2-7yQ">
+                                <rect key="frame" x="282" y="494" width="36" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -269,12 +269,11 @@
                             <constraint firstItem="Y8J-x5-27h" firstAttribute="top" secondItem="yF8-fr-X1f" secondAttribute="bottom" constant="10" id="xTu-TN-VfA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Run Details" id="cra-N8-TIN"/>
                     <connections>
+                        <outlet property="coinsLabel" destination="M4l-Bc-2yh" id="0Pe-b2-eMf"/>
                         <outlet property="dateLabel" destination="XPH-A2-7yQ" id="C35-IF-kVb"/>
                         <outlet property="distanceLabel" destination="Y8J-x5-27h" id="d5T-BV-G8v"/>
                         <outlet property="mapView" destination="yF8-fr-X1f" id="XJI-M8-srE"/>
-                        <outlet property="paceLabel" destination="M4l-Bc-2yh" id="z9C-VK-X2s"/>
                         <outlet property="timeLabel" destination="Xw7-jA-vtN" id="rxO-DH-YgP"/>
                     </connections>
                 </viewController>

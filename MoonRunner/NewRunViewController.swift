@@ -77,6 +77,11 @@ class NewRunViewController: UIViewController {
         
         if seconds <= 0 {
             stopPressed(self)
+            locations.removeAll(keepCapacity: false)
+        }
+        
+        if seconds == maxTime {
+             distance = 0.0
         }
         
         timeLabel.text = "Time Left - " + timeFormatter(seconds)
@@ -116,8 +121,22 @@ class NewRunViewController: UIViewController {
             savedLocations.append(savedLocation)
         }
         
+        savedRun.locations = NSOrderedSet(array: savedLocations)
         run = savedRun
-
+        
+//        for location in locations {
+//            let howRecent = location.timestamp.timeIntervalSinceNow
+//            
+//            // check to make sure the data is accurate enough and that the data is recent enough
+//            if abs(howRecent) < 10 && location.horizontalAccuracy < 20 {
+//                // update distance; only checking horizontal here because vertical is change in altitude (useful when the runner is going up a hill but we ignore for simplicity here)
+//                if self.locations.count > 0 {
+//                    var coords = [CLLocationCoordinate2D]()
+//                    mapView.removeOverlay(MKPolyline(coordinates: &coords, count: coords.count))
+//                }
+//            }
+//        }
+        
         var error: NSError?
         let success: Bool
         do {
@@ -133,16 +152,17 @@ class NewRunViewController: UIViewController {
     }
 
   @IBAction func startPressed(sender: AnyObject) {
+    seconds = maxTime
+    distance = 0.0
+    locations.removeAll(keepCapacity: false)
+    
     startButton.hidden = true
     promptMessage.hidden = true
     timeLabel.hidden = false
     distanceLabel.hidden = false
     coinsLabel.hidden = false
     stopButton.hidden = false
-
-    seconds = maxTime
-    distance = 0.0
-    locations.removeAll(keepCapacity: false)
+    
     timer = NSTimer.scheduledTimerWithTimeInterval(1,
         target: self,
         selector: "runPerSecond:",
@@ -175,7 +195,7 @@ extension NewRunViewController: MKMapViewDelegate {
 
     let polyline = overlay as! MKPolyline
     let renderer = MKPolylineRenderer(polyline: polyline)
-    renderer.strokeColor = UIColor.blueColor()
+    renderer.strokeColor = appColor
     renderer.lineWidth = 3
     return renderer
   }
