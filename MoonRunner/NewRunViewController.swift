@@ -5,6 +5,7 @@ import HealthKit
 import MapKit
 
 let DetailSegueName = "RunDetails"
+let maxTime = 10
 
 class NewRunViewController: UIViewController {
     var managedObjectContext: NSManagedObjectContext?
@@ -14,57 +15,65 @@ class NewRunViewController: UIViewController {
     @IBOutlet weak var promptMessage: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var averageSpeed: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
 
+    @IBOutlet weak var coinsLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
 
-    var seconds = 0.0
+    var seconds = maxTime
     var distance = 0.0
 
     // we use this locationManager to read or stop reading runner's location
     // could use kCLLocationAccuracyNearestTenMeters to save battery life
     // another option is kCLLocationAccuracyBest is the users want really accurate readings
-  lazy var locationManager: CLLocationManager = {
-    var _locationManager = CLLocationManager()
-    _locationManager.delegate = self
-    _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-    _locationManager.activityType = .Fitness // to save power
+    lazy var locationManager: CLLocationManager = {
+        var _locationManager = CLLocationManager()
+        _locationManager.delegate = self
+        _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        _locationManager.activityType = .Fitness // to save power
 
-    // Movement threshold for new events
-    _locationManager.distanceFilter = 5.0
-    return _locationManager
-    }()
+        // Movement threshold for new events
+        _locationManager.distanceFilter = 5.0
+        return _locationManager
+        }()
 
-  lazy var locations = [CLLocation]()
-  lazy var timer = NSTimer()
+    lazy var locations = [CLLocation]()
+    lazy var timer = NSTimer()
 
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
 
-    startButton.hidden = false
-    promptMessage.hidden = false
-
-    timeLabel.hidden = true
-    distanceLabel.hidden = true
-    averageSpeed.hidden = true
-    stopButton.hidden = true
-    mapView.hidden = true
+        startButton.hidden = false
+        promptMessage.hidden = false
+        timeLabel.hidden = true
+        distanceLabel.hidden = true
+        coinsLabel.hidden = true
+        stopButton.hidden = true
+        mapView.hidden = true
     
-    locationManager.requestAlwaysAuthorization()
-  }
+        locationManager.requestAlwaysAuthorization()
+    }
 
-  override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-    timer.invalidate()
-  }
-
-  func runPerSecond(timer: NSTimer) {
-    seconds++
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer.invalidate()
+    }
     
-    let secondsQuantity = HKQuantity(unit: HKUnit.secondUnit(), doubleValue: seconds)
-    timeLabel.text = "Time: " + secondsQuantity.description
+    func timeFormatter(totalSeconds: Int)->String {
+        let seconds = totalSeconds % 60
+        let minutes = (totalSeconds / 60) % 60
+        return String.localizedStringWithFormat("%02d:%02d", minutes, seconds)
+    }
+
+    func runPerSecond(timer: NSTimer) {
+        seconds--
+        
+        if seconds <= 0 {
+            stopPressed(self)
+        }
+        
+        timeLabel.text = "Time Left - " + timeFormatter(seconds)
     
 //    let formatter = NSLengthFormatter()
 //    formatter.numberFormatter.maximumFractionDigits = 2
@@ -73,66 +82,59 @@ class NewRunViewController: UIViewController {
 //    let distanceResult = formatter.stringFromValue(distanceValue, unit: lengthFormatterUnit)
 //    ORIGINAL METHOD OF CONVERTING DOUBLE TO STRING WITH TWO DECIMAL PRECISION
     
-    let distanceQuantity = HKQuantity(unit: HKUnit.meterUnit(), doubleValue: distance)
-    let distanceValue = distanceQuantity.doubleValueForUnit(HKUnit.meterUnit())
-    distanceLabel.text = "Distance: " + String.localizedStringWithFormat("%.2f%@", distanceValue, "m")
-
-    let speedUnit = HKUnit.meterUnit().unitDividedByUnit(HKUnit.secondUnit())
-    let speedQuantity = HKQuantity(unit: speedUnit, doubleValue: distance / seconds)
-    let speedValue = speedQuantity.doubleValueForUnit(speedUnit)
-    averageSpeed.text = "Average Speed: " + String.localizedStringWithFormat("%.2f%@", speedValue, "m/s")
-  }
-
-  func startLocationUpdates() {
-    locationManager.startUpdatingLocation()
-  }
-
-  func saveRun() {
-    // 1
-    let savedRun = NSEntityDescription.insertNewObjectForEntityForName("Run",
-      inManagedObjectContext: managedObjectContext!) as! Run
-    savedRun.distance = distance
-    savedRun.duration = seconds
-    savedRun.timestamp = NSDate()
-
-    // 2
-    var savedLocations = [Location]()
-    for location in locations {
-      let savedLocation = NSEntityDescription.insertNewObjectForEntityForName("Location",
-        inManagedObjectContext: managedObjectContext!) as! Location
-      savedLocation.timestamp = location.timestamp
-      savedLocation.latitude = location.coordinate.latitude
-      savedLocation.longitude = location.coordinate.longitude
-      savedLocations.append(savedLocation)
+        let distanceQuantity = HKQuantity(unit: HKUnit.meterUnit(), doubleValue: distance)
+        let distanceValue = distanceQuantity.doubleValueForUnit(HKUnit.meterUnit())
+        distanceLabel.text = "Distance - " + String.localizedStringWithFormat("%.2f%@", distanceValue, "m")
+    
+        coinsLabel.text = "Coins Collected - 0/15"
     }
 
-    savedRun.locations = NSOrderedSet(array: savedLocations)
-    run = savedRun
+    func startLocationUpdates() {
+        locationManager.startUpdatingLocation()
+    }
 
-    // 3
-    var error: NSError?
-    let success: Bool
-    do {
-      try managedObjectContext!.save()
-      success = true
-    } catch let error1 as NSError {
-      error = error1
-      success = false
+    func saveRun() {
+        let savedRun = NSEntityDescription.insertNewObjectForEntityForName("Run", inManagedObjectContext: managedObjectContext!) as! Run
+        savedRun.distance = distance
+        savedRun.duration = maxTime - seconds
+        savedRun.timestamp = NSDate()
+
+        var savedLocations = [Location]()
+        for location in locations {
+            let savedLocation = NSEntityDescription.insertNewObjectForEntityForName("Location",
+                inManagedObjectContext: managedObjectContext!) as! Location
+            savedLocation.timestamp = location.timestamp
+            savedLocation.latitude = location.coordinate.latitude
+            savedLocation.longitude = location.coordinate.longitude
+            savedLocations.append(savedLocation)
+        }
+
+        savedRun.locations = NSOrderedSet(array: savedLocations)
+        run = savedRun
+
+        var error: NSError?
+        let success: Bool
+        do {
+            try managedObjectContext!.save()
+            success = true
+        } catch let error1 as NSError {
+            error = error1
+            success = false
+        }
+        if !success {
+            print("Could not save the run!")
+        }
     }
-    if !success {
-      print("Could not save the run!")
-    }
-  }
 
   @IBAction func startPressed(sender: AnyObject) {
     startButton.hidden = true
     promptMessage.hidden = true
     timeLabel.hidden = false
     distanceLabel.hidden = false
-    averageSpeed.hidden = false
+    coinsLabel.hidden = false
     stopButton.hidden = false
 
-    seconds = 0.0
+    seconds = maxTime
     distance = 0.0
     locations.removeAll(keepCapacity: false)
     timer = NSTimer.scheduledTimerWithTimeInterval(1,
