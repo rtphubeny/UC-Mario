@@ -44,9 +44,6 @@ class NewRunViewController: UIViewController {
     lazy var timer = NSTimer()
 
     override func viewWillAppear(animated: Bool) {
-        let nav = self.navigationController?.navigationBar
-        nav?.barTintColor = appColor
-        nav?.tintColor = UIColor.whiteColor()
         
         super.viewWillAppear(animated)
 
