@@ -63,16 +63,24 @@ class NewRunViewController: UIViewController {
   func runPerSecond(timer: NSTimer) {
     seconds++
     
-    
-    
     let secondsQuantity = HKQuantity(unit: HKUnit.secondUnit(), doubleValue: seconds)
     timeLabel.text = "Time: " + secondsQuantity.description
+    
+//    let formatter = NSLengthFormatter()
+//    formatter.numberFormatter.maximumFractionDigits = 2
+//    // defaults to medium unit style
+//    let lengthFormatterUnit: NSLengthFormatterUnit = HKUnit.lengthFormatterUnitFromUnit(HKUnit.meterUnit())
+//    let distanceResult = formatter.stringFromValue(distanceValue, unit: lengthFormatterUnit)
+//    ORIGINAL METHOD OF CONVERTING DOUBLE TO STRING WITH TWO DECIMAL PRECISION
+    
     let distanceQuantity = HKQuantity(unit: HKUnit.meterUnit(), doubleValue: distance)
-    distanceLabel.text = "Distance: " + distanceQuantity.description
+    let distanceValue = distanceQuantity.doubleValueForUnit(HKUnit.meterUnit())
+    distanceLabel.text = "Distance: " + String.localizedStringWithFormat("%.2f%@", distanceValue, "m")
 
-    let speedUnit = HKUnit.secondUnit().unitDividedByUnit(HKUnit.meterUnit())
-    let speedQuantity = HKQuantity(unit: speedUnit, doubleValue: seconds / distance)
-    averageSpeed.text = "Average Speed: " + speedQuantity.description
+    let speedUnit = HKUnit.meterUnit().unitDividedByUnit(HKUnit.secondUnit())
+    let speedQuantity = HKQuantity(unit: speedUnit, doubleValue: distance / seconds)
+    let speedValue = speedQuantity.doubleValueForUnit(speedUnit)
+    averageSpeed.text = "Average Speed: " + String.localizedStringWithFormat("%.2f%@", speedValue, "m/s")
   }
 
   func startLocationUpdates() {
