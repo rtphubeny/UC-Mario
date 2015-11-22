@@ -17,19 +17,18 @@ class DetailViewController: UIViewController {
   }
 
   func configureView() {
-    let distanceQuantity = HKQuantity(unit: HKUnit.meterUnit(), doubleValue: run.distance.doubleValue)
-    distanceLabel.text = "Distance: " + distanceQuantity.description
+    // let coinsQuantity = run.coins.doubleValue
+    distanceLabel.text = "Coins Collected -  0/15"
 
     let dateFormatter = NSDateFormatter()
     dateFormatter.dateStyle = .MediumStyle
     dateLabel.text = dateFormatter.stringFromDate(run.timestamp)
 
     let secondsQuantity = HKQuantity(unit: HKUnit.secondUnit(), doubleValue: run.duration.doubleValue)
-    timeLabel.text = "Time: " + secondsQuantity.description
+    timeLabel.text = "Time - " + secondsQuantity.description
 
-    let paceUnit = HKUnit.secondUnit().unitDividedByUnit(HKUnit.meterUnit())
-    let paceQuantity = HKQuantity(unit: paceUnit, doubleValue: run.duration.doubleValue / run.distance.doubleValue)
-    paceLabel.text = "Average Speed: " + paceQuantity.description
+    let distanceQuantity = HKQuantity(unit: HKUnit.meterUnit(), doubleValue: run.distance.doubleValue)
+    paceLabel.text = "Distance Travelled - " + distanceQuantity.description
 
     loadMap()
   }

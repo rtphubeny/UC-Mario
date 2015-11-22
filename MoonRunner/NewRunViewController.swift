@@ -101,10 +101,21 @@ class NewRunViewController: UIViewController {
 
     func saveRun() {
         let savedRun = NSEntityDescription.insertNewObjectForEntityForName("Run", inManagedObjectContext: managedObjectContext!) as! Run
-        savedRun.coins = coins
+        // savedRun.coins = coins
+        savedRun.distance = distance
         savedRun.duration = maxTime - seconds
         savedRun.timestamp = NSDate()
 
+        var savedLocations = [Location]()
+        for location in locations {
+            let savedLocation = NSEntityDescription.insertNewObjectForEntityForName("Location",
+                inManagedObjectContext: managedObjectContext!) as! Location
+            savedLocation.timestamp = location.timestamp
+            savedLocation.latitude = location.coordinate.latitude
+            savedLocation.longitude = location.coordinate.longitude
+            savedLocations.append(savedLocation)
+        }
+        
         run = savedRun
 
         var error: NSError?
@@ -144,14 +155,8 @@ class NewRunViewController: UIViewController {
   }
 
   @IBAction func stopPressed(sender: AnyObject) {
-    let actionSheet = UIActionSheet(
-        title: "Run Stopped",
-        delegate: self,
-        cancelButtonTitle: "Cancel",
-        destructiveButtonTitle: nil,
-        otherButtonTitles: "Save", "Discard")
-    actionSheet.actionSheetStyle = .Default
-    actionSheet.showInView(view)
+    saveRun()
+    performSegueWithIdentifier(DetailSegueName, sender: nil)
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -201,21 +206,6 @@ extension NewRunViewController: CLLocationManagerDelegate {
         //save location
         self.locations.append(location)
       }
-    }
-  }
-}
-
-// MARK: - UIActionSheetDelegate
-extension NewRunViewController: UIActionSheetDelegate {
-  func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
-    //save
-    if buttonIndex == 1 {
-      saveRun()
-      performSegueWithIdentifier(DetailSegueName, sender: nil)
-    }
-      //discard
-    else if buttonIndex == 2 {
-      navigationController?.popToRootViewControllerAnimated(true)
     }
   }
 }

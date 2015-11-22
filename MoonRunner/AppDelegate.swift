@@ -67,8 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSSQLiteStoreType,
             configuration: nil,
             URL: url,
-            options: [NSMigratePersistentStoresAutomaticallyOption: true,
-                NSInferMappingModelAutomaticallyOption: true])
+            options: nil)
       } catch var error1 as NSError {
           error = error1
           coordinator = nil
