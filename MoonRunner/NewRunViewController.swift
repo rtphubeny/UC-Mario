@@ -7,30 +7,33 @@ import MapKit
 let DetailSegueName = "RunDetails"
 
 class NewRunViewController: UIViewController {
-  var managedObjectContext: NSManagedObjectContext?
+    var managedObjectContext: NSManagedObjectContext?
 
-  var run: Run!
+    var run: Run!
 
-  @IBOutlet weak var promptLabel: UILabel!
-  @IBOutlet weak var timeLabel: UILabel!
-  @IBOutlet weak var distanceLabel: UILabel!
-  @IBOutlet weak var paceLabel: UILabel!
-  @IBOutlet weak var startButton: UIButton!
-  @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var promptMessage: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var averageSpeed: UILabel!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
 
-  @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mapView: MKMapView!
 
-  var seconds = 0.0
-  var distance = 0.0
+    var seconds = 0.0
+    var distance = 0.0
 
+    // we use this locationManager to read or stop reading runner's location
+    // could use kCLLocationAccuracyNearestTenMeters to save battery life
+    // another option is kCLLocationAccuracyBest is the users want really accurate readings
   lazy var locationManager: CLLocationManager = {
     var _locationManager = CLLocationManager()
     _locationManager.delegate = self
-    _locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    _locationManager.activityType = .Fitness
+    _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+    _locationManager.activityType = .Fitness // to save power
 
     // Movement threshold for new events
-    _locationManager.distanceFilter = 10.0
+    _locationManager.distanceFilter = 5.0
     return _locationManager
     }()
 
@@ -41,16 +44,15 @@ class NewRunViewController: UIViewController {
     super.viewWillAppear(animated)
 
     startButton.hidden = false
-    promptLabel.hidden = false
+    promptMessage.hidden = false
 
     timeLabel.hidden = true
     distanceLabel.hidden = true
-    paceLabel.hidden = true
+    averageSpeed.hidden = true
     stopButton.hidden = true
-
-    locationManager.requestAlwaysAuthorization()
-
     mapView.hidden = true
+    
+    locationManager.requestAlwaysAuthorization()
   }
 
   override func viewWillDisappear(animated: Bool) {
@@ -58,7 +60,7 @@ class NewRunViewController: UIViewController {
     timer.invalidate()
   }
 
-  func eachSecond(timer: NSTimer) {
+  func runPerSecond(timer: NSTimer) {
     seconds++
     let secondsQuantity = HKQuantity(unit: HKUnit.secondUnit(), doubleValue: seconds)
     timeLabel.text = "Time: " + secondsQuantity.description
@@ -67,11 +69,10 @@ class NewRunViewController: UIViewController {
 
     let paceUnit = HKUnit.secondUnit().unitDividedByUnit(HKUnit.meterUnit())
     let paceQuantity = HKQuantity(unit: paceUnit, doubleValue: seconds / distance)
-    paceLabel.text = "Pace: " + paceQuantity.description
+    averageSpeed.text = "Average Speed: " + paceQuantity.description
   }
 
   func startLocationUpdates() {
-    // Here, the location manager will be lazily instantiated
     locationManager.startUpdatingLocation()
   }
 
@@ -114,18 +115,22 @@ class NewRunViewController: UIViewController {
 
   @IBAction func startPressed(sender: AnyObject) {
     startButton.hidden = true
-    promptLabel.hidden = true
-
+    promptMessage.hidden = true
     timeLabel.hidden = false
     distanceLabel.hidden = false
-    paceLabel.hidden = false
+    averageSpeed.hidden = false
     stopButton.hidden = false
 
     seconds = 0.0
     distance = 0.0
     locations.removeAll(keepCapacity: false)
-    timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "eachSecond:", userInfo: nil, repeats: true)
+    timer = NSTimer.scheduledTimerWithTimeInterval(1,
+        target: self,
+        selector: "runPerSecond:",
+        userInfo: nil,
+        repeats: true)
     startLocationUpdates()
+    // schedule an update every second
 
     mapView.hidden = false
   }
@@ -158,7 +163,7 @@ extension NewRunViewController: MKMapViewDelegate {
   }
 }
 
-// MARK: - CLLocationManagerDelegate
+// use this to get update using location manager
 extension NewRunViewController: CLLocationManagerDelegate {
   func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     for location in locations {

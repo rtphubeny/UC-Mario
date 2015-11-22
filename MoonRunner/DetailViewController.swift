@@ -29,7 +29,7 @@ class DetailViewController: UIViewController {
 
     let paceUnit = HKUnit.secondUnit().unitDividedByUnit(HKUnit.meterUnit())
     let paceQuantity = HKQuantity(unit: paceUnit, doubleValue: run.duration.doubleValue / run.distance.doubleValue)
-    paceLabel.text = "Pace: " + paceQuantity.description
+    paceLabel.text = "Average Speed: " + paceQuantity.description
 
     loadMap()
   }
