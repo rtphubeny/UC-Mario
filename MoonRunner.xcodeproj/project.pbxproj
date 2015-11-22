@@ -17,8 +17,8 @@
 		8739A7161A9B80B4001FE88E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8739A7131A9B8092001FE88E /* MapKit.framework */; };
 		874B42151A9C344500081A45 /* NewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B42141A9C344500081A45 /* NewRunViewController.swift */; };
 		8772AB5B1A26347A00613309 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8772AB591A26347A00613309 /* HomeViewController.swift */; };
-		A7AFB70B1C022A3E00290852 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7AFB70A1C022A3E00290852 /* Images.xcassets */; };
 		A7AFB70E1C022AFA00290852 /* MoonRunner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7AFB70C1C022AFA00290852 /* MoonRunner.xcdatamodeld */; };
+		A7AFB7101C02569F00290852 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7AFB70F1C02569F00290852 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +46,8 @@
 		8739A7131A9B8092001FE88E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		874B42141A9C344500081A45 /* NewRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRunViewController.swift; sourceTree = "<group>"; };
 		8772AB591A26347A00613309 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		A7AFB70A1C022A3E00290852 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MoonRunner/Images.xcassets; sourceTree = "<group>"; };
 		A7AFB70D1C022AFA00290852 /* MoonRunner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoonRunner.xcdatamodel; sourceTree = "<group>"; };
+		A7AFB70F1C02569F00290852 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MoonRunner/Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +81,7 @@
 		870F82541A24E70F00776E2F = {
 			isa = PBXGroup;
 			children = (
-				A7AFB70A1C022A3E00290852 /* Images.xcassets */,
+				A7AFB70F1C02569F00290852 /* Images.xcassets */,
 				870F825F1A24E70F00776E2F /* MoonRunner */,
 				870F827A1A24E71000776E2F /* MoonRunnerTests */,
 				8739A7151A9B809D001FE88E /* Frameworks */,
@@ -236,7 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7AFB70B1C022A3E00290852 /* Images.xcassets in Resources */,
+				A7AFB7101C02569F00290852 /* Images.xcassets in Resources */,
 				870F826D1A24E70F00776E2F /* Main.storyboard in Resources */,
 				870F82721A24E70F00776E2F /* LaunchScreen.xib in Resources */,
 			);
