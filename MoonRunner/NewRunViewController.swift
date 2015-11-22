@@ -6,6 +6,7 @@ import MapKit
 
 let DetailSegueName = "RunDetails"
 let maxTime = 10
+let appColor = UIColor(red:0.99, green:0.36, blue:0.39, alpha:1.0)
 
 class NewRunViewController: UIViewController {
     var managedObjectContext: NSManagedObjectContext?
@@ -20,9 +21,10 @@ class NewRunViewController: UIViewController {
 
     @IBOutlet weak var coinsLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
-
+    
     var seconds = maxTime
     var distance = 0.0
+    var coins = 0
 
     // we use this locationManager to read or stop reading runner's location
     // could use kCLLocationAccuracyNearestTenMeters to save battery life
@@ -42,6 +44,10 @@ class NewRunViewController: UIViewController {
     lazy var timer = NSTimer()
 
     override func viewWillAppear(animated: Bool) {
+        let nav = self.navigationController?.navigationBar
+        nav?.barTintColor = appColor
+        nav?.tintColor = UIColor.whiteColor()
+        
         super.viewWillAppear(animated)
 
         startButton.hidden = false
@@ -86,7 +92,7 @@ class NewRunViewController: UIViewController {
         let distanceValue = distanceQuantity.doubleValueForUnit(HKUnit.meterUnit())
         distanceLabel.text = "Distance - " + String.localizedStringWithFormat("%.2f%@", distanceValue, "m")
     
-        coinsLabel.text = "Coins Collected - 0/15"
+        coinsLabel.text = "Coins Collected - " + String.localizedStringWithFormat("%d%", coins) + "/15"
     }
 
     func startLocationUpdates() {
@@ -95,21 +101,10 @@ class NewRunViewController: UIViewController {
 
     func saveRun() {
         let savedRun = NSEntityDescription.insertNewObjectForEntityForName("Run", inManagedObjectContext: managedObjectContext!) as! Run
-        savedRun.distance = distance
+        savedRun.coins = coins
         savedRun.duration = maxTime - seconds
         savedRun.timestamp = NSDate()
 
-        var savedLocations = [Location]()
-        for location in locations {
-            let savedLocation = NSEntityDescription.insertNewObjectForEntityForName("Location",
-                inManagedObjectContext: managedObjectContext!) as! Location
-            savedLocation.timestamp = location.timestamp
-            savedLocation.latitude = location.coordinate.latitude
-            savedLocation.longitude = location.coordinate.longitude
-            savedLocations.append(savedLocation)
-        }
-
-        savedRun.locations = NSOrderedSet(array: savedLocations)
         run = savedRun
 
         var error: NSError?

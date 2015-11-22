@@ -14,14 +14,12 @@
 		870F82661A24E70F00776E2F /* MoonRunner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 870F82641A24E70F00776E2F /* MoonRunner.xcdatamodeld */; };
 		870F826A1A24E70F00776E2F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870F82691A24E70F00776E2F /* DetailViewController.swift */; };
 		870F826D1A24E70F00776E2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 870F826B1A24E70F00776E2F /* Main.storyboard */; };
-		870F826F1A24E70F00776E2F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870F826E1A24E70F00776E2F /* Images.xcassets */; };
 		870F82721A24E70F00776E2F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 870F82701A24E70F00776E2F /* LaunchScreen.xib */; };
 		870F827E1A24E71000776E2F /* MoonRunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870F827D1A24E71000776E2F /* MoonRunnerTests.swift */; };
-		872189281AA2A43E00C63008 /* badges.json in Resources */ = {isa = PBXBuildFile; fileRef = 872189271AA2A43E00C63008 /* badges.json */; };
-		8721892A1AA2A46100C63008 /* success.wav in Resources */ = {isa = PBXBuildFile; fileRef = 872189291AA2A46100C63008 /* success.wav */; };
 		8739A7161A9B80B4001FE88E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8739A7131A9B8092001FE88E /* MapKit.framework */; };
 		874B42151A9C344500081A45 /* NewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B42141A9C344500081A45 /* NewRunViewController.swift */; };
 		8772AB5B1A26347A00613309 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8772AB591A26347A00613309 /* HomeViewController.swift */; };
+		A784ABF21C01C8DD00D6F8C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A784ABF11C01C8DD00D6F8C0 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,16 +42,15 @@
 		870F82651A24E70F00776E2F /* MoonRunner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoonRunner.xcdatamodel; sourceTree = "<group>"; };
 		870F82691A24E70F00776E2F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		870F826C1A24E70F00776E2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		870F826E1A24E70F00776E2F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		870F82711A24E70F00776E2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		870F82771A24E71000776E2F /* MoonRunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoonRunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		870F827C1A24E71000776E2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		870F827D1A24E71000776E2F /* MoonRunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonRunnerTests.swift; sourceTree = "<group>"; };
-		872189271AA2A43E00C63008 /* badges.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = badges.json; sourceTree = "<group>"; };
-		872189291AA2A46100C63008 /* success.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = success.wav; sourceTree = "<group>"; };
 		8739A7131A9B8092001FE88E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		874B42141A9C344500081A45 /* NewRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRunViewController.swift; sourceTree = "<group>"; };
 		8772AB591A26347A00613309 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A784ABED1C01BC4200D6F8C0 /* UCMario_1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UCMario_1.xcdatamodel; sourceTree = "<group>"; };
+		A784ABF11C01C8DD00D6F8C0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +103,7 @@
 		870F825F1A24E70F00776E2F /* MoonRunner */ = {
 			isa = PBXGroup;
 			children = (
+				A784ABF11C01C8DD00D6F8C0 /* Images.xcassets */,
 				78CE0D631AFBEA36009BBE75 /* Models */,
 				870F82621A24E70F00776E2F /* AppDelegate.swift */,
 				8772AB591A26347A00613309 /* HomeViewController.swift */,
@@ -114,7 +112,6 @@
 				7892B4B21AFECC7E00195857 /* MulticolorPolylineSegment.swift */,
 				870F826B1A24E70F00776E2F /* Main.storyboard */,
 				870F82641A24E70F00776E2F /* MoonRunner.xcdatamodeld */,
-				870F826E1A24E70F00776E2F /* Images.xcassets */,
 				870F82701A24E70F00776E2F /* LaunchScreen.xib */,
 				870F82601A24E70F00776E2F /* Supporting Files */,
 			);
@@ -124,8 +121,6 @@
 		870F82601A24E70F00776E2F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				872189291AA2A46100C63008 /* success.wav */,
-				872189271AA2A43E00C63008 /* badges.json */,
 				870F82611A24E70F00776E2F /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -208,6 +203,7 @@
 				TargetAttributes = {
 					870F825C1A24E70F00776E2F = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 4SBB446236;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -244,11 +240,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8721892A1AA2A46100C63008 /* success.wav in Resources */,
+				A784ABF21C01C8DD00D6F8C0 /* Images.xcassets in Resources */,
 				870F826D1A24E70F00776E2F /* Main.storyboard in Resources */,
-				872189281AA2A43E00C63008 /* badges.json in Resources */,
 				870F82721A24E70F00776E2F /* LaunchScreen.xib in Resources */,
-				870F826F1A24E70F00776E2F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,9 +390,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MoonRunner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.UCMario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -406,9 +404,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MoonRunner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.UCMario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -482,9 +484,10 @@
 		870F82641A24E70F00776E2F /* MoonRunner.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				A784ABED1C01BC4200D6F8C0 /* UCMario_1.xcdatamodel */,
 				870F82651A24E70F00776E2F /* MoonRunner.xcdatamodel */,
 			);
-			currentVersion = 870F82651A24E70F00776E2F /* MoonRunner.xcdatamodel */;
+			currentVersion = A784ABED1C01BC4200D6F8C0 /* UCMario_1.xcdatamodel */;
 			path = MoonRunner.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
