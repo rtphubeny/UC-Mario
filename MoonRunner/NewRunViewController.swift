@@ -62,14 +62,17 @@ class NewRunViewController: UIViewController {
 
   func runPerSecond(timer: NSTimer) {
     seconds++
+    
+    
+    
     let secondsQuantity = HKQuantity(unit: HKUnit.secondUnit(), doubleValue: seconds)
     timeLabel.text = "Time: " + secondsQuantity.description
     let distanceQuantity = HKQuantity(unit: HKUnit.meterUnit(), doubleValue: distance)
     distanceLabel.text = "Distance: " + distanceQuantity.description
 
-    let paceUnit = HKUnit.secondUnit().unitDividedByUnit(HKUnit.meterUnit())
-    let paceQuantity = HKQuantity(unit: paceUnit, doubleValue: seconds / distance)
-    averageSpeed.text = "Average Speed: " + paceQuantity.description
+    let speedUnit = HKUnit.secondUnit().unitDividedByUnit(HKUnit.meterUnit())
+    let speedQuantity = HKQuantity(unit: speedUnit, doubleValue: seconds / distance)
+    averageSpeed.text = "Average Speed: " + speedQuantity.description
   }
 
   func startLocationUpdates() {
@@ -136,7 +139,12 @@ class NewRunViewController: UIViewController {
   }
 
   @IBAction func stopPressed(sender: AnyObject) {
-    let actionSheet = UIActionSheet(title: "Run Stopped", delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: "Save", "Discard")
+    let actionSheet = UIActionSheet(
+        title: "Run Stopped",
+        delegate: self,
+        cancelButtonTitle: "Cancel",
+        destructiveButtonTitle: nil,
+        otherButtonTitles: "Save", "Discard")
     actionSheet.actionSheetStyle = .Default
     actionSheet.showInView(view)
   }
@@ -168,11 +176,12 @@ extension NewRunViewController: CLLocationManagerDelegate {
   func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     for location in locations {
       let howRecent = location.timestamp.timeIntervalSinceNow
-
+        
+        // check to make sure the data is accurate enough and that the data is recent enough
       if abs(howRecent) < 10 && location.horizontalAccuracy < 20 {
-        //update distance
+        // update distance; only checking horizontal here because vertical is change in altitude (useful when the runner is going up a hill but we ignore for simplicity here)
         if self.locations.count > 0 {
-          distance += location.distanceFromLocation(self.locations.last!)
+          distance += location.distanceFromLocation(self.locations.last!)   // calculate distance from last saved location in the locations array
 
           var coords = [CLLocationCoordinate2D]()
           coords.append(self.locations.last!.coordinate)
