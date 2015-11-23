@@ -17,5 +17,6 @@ class HomeViewController: UIViewController {
         let nav = self.navigationController?.navigationBar
         nav?.barTintColor = appColor
         nav?.tintColor = UIColor.whiteColor()
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
     }
 }
