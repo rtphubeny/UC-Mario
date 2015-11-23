@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		38EAD41D1C029BF800CDDAB2 /* ARCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4121C029BF800CDDAB2 /* ARCoordinate.m */; settings = {ASSET_TAGS = (); }; };
-		38EAD41E1C029BF800CDDAB2 /* ARGeoCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4141C029BF800CDDAB2 /* ARGeoCoordinate.m */; settings = {ASSET_TAGS = (); }; };
-		38EAD41F1C029BF800CDDAB2 /* ARKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4161C029BF800CDDAB2 /* ARKit.m */; settings = {ASSET_TAGS = (); }; };
-		38EAD4201C029BF800CDDAB2 /* AugmentedRealityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD41A1C029BF800CDDAB2 /* AugmentedRealityController.m */; settings = {ASSET_TAGS = (); }; };
-		38EAD4211C029BF800CDDAB2 /* GEOLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD41C1C029BF800CDDAB2 /* GEOLocations.m */; settings = {ASSET_TAGS = (); }; };
-		38EAD42B1C029C0400CDDAB2 /* MarkerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4241C029C0400CDDAB2 /* MarkerView.m */; settings = {ASSET_TAGS = (); }; };
-		38EAD42C1C029C0400CDDAB2 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4261C029C0400CDDAB2 /* Place.m */; settings = {ASSET_TAGS = (); }; };
-		38EAD42D1C029C0400CDDAB2 /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4281C029C0400CDDAB2 /* PlaceAnnotation.m */; settings = {ASSET_TAGS = (); }; };
-		38EAD42E1C029C0400CDDAB2 /* PlacesLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD42A1C029C0400CDDAB2 /* PlacesLoader.m */; settings = {ASSET_TAGS = (); }; };
-		38EAD4311C029C5700CDDAB2 /* FlipsideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4301C029C5700CDDAB2 /* FlipsideViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		38EAD41D1C029BF800CDDAB2 /* ARCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4121C029BF800CDDAB2 /* ARCoordinate.m */; };
+		38EAD41E1C029BF800CDDAB2 /* ARGeoCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4141C029BF800CDDAB2 /* ARGeoCoordinate.m */; };
+		38EAD41F1C029BF800CDDAB2 /* ARKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4161C029BF800CDDAB2 /* ARKit.m */; };
+		38EAD4201C029BF800CDDAB2 /* AugmentedRealityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD41A1C029BF800CDDAB2 /* AugmentedRealityController.m */; };
+		38EAD4211C029BF800CDDAB2 /* GEOLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD41C1C029BF800CDDAB2 /* GEOLocations.m */; };
+		38EAD42B1C029C0400CDDAB2 /* MarkerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4241C029C0400CDDAB2 /* MarkerView.m */; };
+		38EAD42C1C029C0400CDDAB2 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4261C029C0400CDDAB2 /* Place.m */; };
+		38EAD42D1C029C0400CDDAB2 /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4281C029C0400CDDAB2 /* PlaceAnnotation.m */; };
+		38EAD42E1C029C0400CDDAB2 /* PlacesLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD42A1C029C0400CDDAB2 /* PlacesLoader.m */; };
+		38EAD4311C029C5700CDDAB2 /* FlipsideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4301C029C5700CDDAB2 /* FlipsideViewController.swift */; };
 		78CE0D651AFBEA53009BBE75 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CE0D641AFBEA53009BBE75 /* Location.swift */; };
 		78CE0D671AFBEA54009BBE75 /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CE0D661AFBEA54009BBE75 /* Run.swift */; };
 		870F82631A24E70F00776E2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870F82621A24E70F00776E2F /* AppDelegate.swift */; };
@@ -27,6 +27,7 @@
 		8739A7161A9B80B4001FE88E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8739A7131A9B8092001FE88E /* MapKit.framework */; };
 		874B42151A9C344500081A45 /* NewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B42141A9C344500081A45 /* NewRunViewController.swift */; };
 		8772AB5B1A26347A00613309 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8772AB591A26347A00613309 /* HomeViewController.swift */; };
+		A77E151A1C02AE880065A349 /* PastRunsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AFB7111C025A3600290852 /* PastRunsViewController.swift */; };
 		A7AFB70E1C022AFA00290852 /* MoonRunner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7AFB70C1C022AFA00290852 /* MoonRunner.xcdatamodeld */; };
 		A7AFB7101C02569F00290852 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7AFB70F1C02569F00290852 /* Images.xcassets */; };
 		A7AFB7121C025A3600290852 /* PastRunsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AFB7111C025A3600290852 /* PastRunsViewController.swift */; };
@@ -354,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A77E151A1C02AE880065A349 /* PastRunsViewController.swift in Sources */,
 				870F827E1A24E71000776E2F /* MoonRunnerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

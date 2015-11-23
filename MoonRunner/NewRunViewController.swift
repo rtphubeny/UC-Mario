@@ -103,7 +103,7 @@ class NewRunViewController: UIViewController {
 
     func saveRun() {
         let savedRun = NSEntityDescription.insertNewObjectForEntityForName("Run", inManagedObjectContext: managedObjectContext!) as! Run
-        // savedRun.coins = coins
+            // savedRun.coins = coins
         savedRun.distance = distance
         savedRun.duration = maxTime - seconds
         savedRun.timestamp = NSDate()

@@ -17,7 +17,7 @@ class PastRunsViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         title = "Past Runs"
         tableView.registerClass(UITableViewCell.self,
-            forCellReuseIdentifier: "Cell")
+            forCellReuseIdentifier: "runData")
         // Do any additional setup after loading the view.
     }
 
@@ -47,6 +47,12 @@ class PastRunsViewController: UIViewController, UITableViewDataSource {
         }
     }
     
+    func timeFormatter(totalSeconds: Int)->String {
+        let seconds = totalSeconds % 60
+        let minutes = (totalSeconds / 60) % 60
+        return String.localizedStringWithFormat("%02dmins%02dsecs", minutes, seconds)
+    }
+    
     func tableView(tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
             print (run.count)
@@ -57,25 +63,23 @@ class PastRunsViewController: UIViewController, UITableViewDataSource {
         cellForRowAtIndexPath
         indexPath: NSIndexPath) -> UITableViewCell {
             
-            let cell =
-            tableView.dequeueReusableCellWithIdentifier("Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("runData")
             
             let oneRun = run[indexPath.row]
             
-            cell!.textLabel!.text =
-                oneRun.valueForKey("timestamp") as? String
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateStyle = .MediumStyle
+            // dateLabel.text = dateFormatter.stringFromDate(run.timestamp)
+            var displayText = String.localizedStringWithFormat("%d%@", (oneRun.valueForKey("coins") as? Int)!, "/15 collected in ")
+            displayText += timeFormatter((oneRun.valueForKey("duration") as? Int)!)
+            displayText += " on " + dateFormatter.stringFromDate((oneRun.valueForKey("timestamp") as? NSDate)!)
+            print(oneRun.valueForKey("timestamp") as? NSDate)
+            print(oneRun.valueForKey("distance") as? Float)
+            print(oneRun.valueForKey("duration") as? Int)
+            print(oneRun.valueForKey("coins") as? Int)
             
+            cell!.textLabel!.text = displayText
             return cell!
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
