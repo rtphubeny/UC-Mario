@@ -17,8 +17,8 @@ class DetailViewController: UIViewController {
   }
 
   func configureView() {
-    // let coinsQuantity = run.coins.doubleValue
-    coinsLabel.text = "Coins Collected -  0/15"
+    let coinsQuantity = run.coins.stringValue
+    coinsLabel.text = "Coins Collected - " + coinsQuantity + "/15"
 
     let dateFormatter = NSDateFormatter()
     dateFormatter.dateStyle = .MediumStyle

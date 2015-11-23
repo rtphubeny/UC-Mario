@@ -8,6 +8,12 @@ let DetailSegueName = "RunDetails"
 let maxTime = 10
 let appColor = UIColor(red:0.99, green:0.36, blue:0.39, alpha:1.0)
 
+let kNameKey = "name";
+let kReferenceKey = "reference";
+let kAddressKey = "vicinity";
+let kLatiudeKeypath = "geometry.location.lat";
+let kLongitudeKeypath = "geometry.location.lng";
+
 class NewRunViewController: UIViewController {
     var managedObjectContext: NSManagedObjectContext?
 
@@ -41,6 +47,7 @@ class NewRunViewController: UIViewController {
         }()
 
     lazy var locations = [CLLocation]()
+    lazy var coinLocations = [CLLocation]()
     lazy var timer = NSTimer()
 
     override func viewWillAppear(animated: Bool) {
@@ -99,11 +106,66 @@ class NewRunViewController: UIViewController {
 
     func startLocationUpdates() {
         locationManager.startUpdatingLocation()
+        
+        // After a 1 second delay to get the location,
+        // place the coins on the map based on the current location
+        let seconds = 1.0
+        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        
+        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            if let lastLocation = self.locations.last {
+                let accuracy: CLLocationAccuracy = lastLocation.horizontalAccuracy
+                if accuracy < 100.0 {
+                    PlacesLoader.sharedInstance().loadPOIsForLocation(lastLocation, radius:100,
+                        successHandler: { (response) -> Void in
+                            if let status = response["status"] {
+                                if let status = response["status"] as? String {
+                                    if (status == "OK") {
+                                        let places: NSArray = response["results"] as! NSArray
+                                        //var temp: [AnyObject] = NSMutableArray() as [AnyObject]
+                                        if places.isKindOfClass(NSArray) {
+                                            for dataObject : AnyObject in places {
+                                                if let resultsDict = dataObject as? NSDictionary {
+                                                    let location: CLLocation = CLLocation(latitude: resultsDict.valueForKeyPath(kLatiudeKeypath)!.doubleValue, longitude: resultsDict.valueForKeyPath(kLongitudeKeypath)!.doubleValue)
+                                                    self.coinLocations.append(location)
+                                                    if let reference = resultsDict[kReferenceKey] as? String {
+                                                        if let name = resultsDict[kNameKey] as? String {
+                                                            if let address = resultsDict[kAddressKey] as? String {
+                                                                let currentPlace: Place = Place(location: location, reference: reference, name: name, address: address)
+                                                                //temp.addObject(currentPlace)
+                                                                let annotation: PlaceAnnotation = PlaceAnnotation(place: currentPlace)
+                                                                self.mapView.addAnnotation(annotation)
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        //self.locations = temp.copy()
+                                        //NSLog("Locations: %@", locations)
+                                    } // end of if statement
+                                }
+                            }
+                            
+                        }, errorHandler: { (error) -> Void in
+                            // execute
+                    })
+                    // For testing in simulator
+                    /*
+                    let location2: CLLocation = CLLocation(latitude: 37.331553, longitude: -122.030800)
+                    let currentPlace2: Place = Place(location: location2, reference: "Test2", name: "Test2", address: "Test2")
+                    let annotation2: PlaceAnnotation = PlaceAnnotation(place: currentPlace2)
+                    self.mapView.addAnnotation(annotation2)
+                    */
+                } // end
+            }
+        })
     }
 
     func saveRun() {
         let savedRun = NSEntityDescription.insertNewObjectForEntityForName("Run", inManagedObjectContext: managedObjectContext!) as! Run
-            // savedRun.coins = coins
+        savedRun.coins = coins
         savedRun.distance = distance
         savedRun.duration = maxTime - seconds
         savedRun.timestamp = NSDate()
@@ -185,44 +247,88 @@ class NewRunViewController: UIViewController {
 
 // MARK: - MKMapViewDelegate
 extension NewRunViewController: MKMapViewDelegate {
-  func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer! {
-    if !overlay.isKindOfClass(MKPolyline) {
-      return nil
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer! {
+        if !overlay.isKindOfClass(MKPolyline) {
+            return nil
+        }
+        
+        let polyline = overlay as! MKPolyline
+        let renderer = MKPolylineRenderer(polyline: polyline)
+        renderer.strokeColor = appColor
+        renderer.lineWidth = 3
+        return renderer
     }
-
-    let polyline = overlay as! MKPolyline
-    let renderer = MKPolylineRenderer(polyline: polyline)
-    renderer.strokeColor = appColor
-    renderer.lineWidth = 3
-    return renderer
-  }
+    
+    // Use a golden coin as a location marker instead of the default location pin
+    // Function gets called automatically when an annotation is created
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        var annView: MKAnnotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "currentloc")
+        annView.image = UIImage(named: "golden_coin.png")
+        annView.canShowCallout = true
+        return annView
+    }
 }
+
 
 // use this to get update using location manager
 extension NewRunViewController: CLLocationManagerDelegate {
-  func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    for location in locations {
-      let howRecent = location.timestamp.timeIntervalSinceNow
-        
-        // check to make sure the data is accurate enough and that the data is recent enough
-      if abs(howRecent) < 10 && location.horizontalAccuracy < 20 {
-        // update distance; only checking horizontal here because vertical is change in altitude (useful when the runner is going up a hill but we ignore for simplicity here)
-        if self.locations.count > 0 {
-          distance += location.distanceFromLocation(self.locations.last!)   // calculate distance from last saved location in the locations array
-
-          var coords = [CLLocationCoordinate2D]()
-          coords.append(self.locations.last!.coordinate)
-          coords.append(location.coordinate)
-
-          let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500, 500)
-          mapView.setRegion(region, animated: true)
-
-          mapView.addOverlay(MKPolyline(coordinates: &coords, count: coords.count))
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        for location in locations {
+            let howRecent = location.timestamp.timeIntervalSinceNow
+            
+            // check to make sure the data is accurate enough and that the data is recent enough
+            if abs(howRecent) < 10 && location.horizontalAccuracy < 20 {
+                // update distance; only checking horizontal here because vertical is change in altitude (useful when the runner is going up a hill but we ignore for simplicity here)
+                if self.locations.count > 0 {
+                    distance += location.distanceFromLocation(self.locations.last!)   // calculate distance from last saved location in the locations array
+                    
+                    var coords = [CLLocationCoordinate2D]()
+                    coords.append(self.locations.last!.coordinate)
+                    coords.append(location.coordinate)
+                    
+                    let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500, 500)
+                    mapView.setRegion(region, animated: true)
+                    
+                    mapView.addOverlay(MKPolyline(coordinates: &coords, count: coords.count))
+                }
+                
+                //save location
+                self.locations.append(location)
+            }
         }
-
-        //save location
-        self.locations.append(location)
-      }
+        // Check if we hit a coin
+        let location: AnyObject? = locations.last
+        if let location: AnyObject = location {
+            let lastLocation = location as! CLLocation
+            for annotation: MKAnnotation in mapView.annotations {
+                let coord: CLLocationCoordinate2D = annotation.coordinate
+                
+                let mycurrentlat = lastLocation.coordinate.latitude
+                let mycurrentlon = lastLocation.coordinate.longitude
+                
+                let lat1 = coord.latitude + 0.00012
+                let lat2 = coord.latitude - 0.00012
+                
+                let lon1 = coord.longitude + 0.00012
+                let lon2 = coord.longitude - 0.00012
+                
+                if ((mycurrentlat <= lat1) && (mycurrentlon <= lon1) && (mycurrentlat >= lat2) && (mycurrentlon >= lon2)) {
+                    //NSLog("PIN coordinates = %f,%f, %@", coord.latitude, coord.longitude, annotation.title)
+                    mapView.removeAnnotation(annotation)
+                    coins++
+                    //var temp: [AnyObject] = NSMutableArray()
+                    /*
+                    for place: Place in locations {
+                    if place.placeName != annotation.title {
+                    temp.addObject(place)
+                    }
+                    }
+                    self.locations = temp.copy()
+                    */
+                }
+            }
+        }
     }
-  }
 }
+
