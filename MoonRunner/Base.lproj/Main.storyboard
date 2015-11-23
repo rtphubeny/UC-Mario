@@ -298,27 +298,33 @@
                                 </connections>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Route Taken" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8J-x5-27h">
-                                <rect key="frame" x="250" y="324" width="147" height="30"/>
+                                <rect key="frame" x="226.5" y="474" width="147" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Time - " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xw7-jA-vtN">
-                                <rect key="frame" x="16" y="415" width="55" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Time - " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xw7-jA-vtN">
+                                <rect key="frame" x="20" y="549.5" width="54.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Coins Collected - " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4l-Bc-2yh">
-                                <rect key="frame" x="16" y="446" width="137" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Coins Collected - " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4l-Bc-2yh">
+                                <rect key="frame" x="20" y="580" width="137.5" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-A2-7yQ">
-                                <rect key="frame" x="282" y="494" width="36" height="21"/>
+                                <rect key="frame" x="282" y="524" width="36" height="5.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P35-MM-GAU">
+                                <rect key="frame" x="300" y="590" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.92549019607843142" green="0.17254901960784313" blue="0.23921568627450981" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -326,8 +332,10 @@
                         <constraints>
                             <constraint firstItem="yF8-fr-X1f" firstAttribute="top" secondItem="cIm-e0-J51" secondAttribute="bottom" id="3Jw-uD-UHd"/>
                             <constraint firstItem="XPH-A2-7yQ" firstAttribute="centerX" secondItem="Y8J-x5-27h" secondAttribute="centerX" id="7t3-Ax-M7n"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="P35-MM-GAU" secondAttribute="bottom" constant="10" id="GQl-4M-iHx"/>
                             <constraint firstItem="yF8-fr-X1f" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leading" id="Ro0-4V-7iQ"/>
                             <constraint firstItem="M4l-Bc-2yh" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leadingMargin" id="TBf-1Z-WVh"/>
+                            <constraint firstItem="P35-MM-GAU" firstAttribute="centerX" secondItem="MMQ-IT-qOo" secondAttribute="centerX" id="UUD-z2-IYr"/>
                             <constraint firstItem="M4l-Bc-2yh" firstAttribute="top" secondItem="Xw7-jA-vtN" secondAttribute="bottom" constant="10" id="aNP-0j-r1d"/>
                             <constraint firstItem="XPH-A2-7yQ" firstAttribute="top" secondItem="Y8J-x5-27h" secondAttribute="bottom" constant="20" id="bXc-Nk-r5N"/>
                             <constraint firstItem="M4l-Bc-2yh" firstAttribute="leading" secondItem="Xw7-jA-vtN" secondAttribute="leading" id="gdE-Yt-9Fa"/>
@@ -343,6 +351,7 @@
                         <outlet property="dateLabel" destination="XPH-A2-7yQ" id="C35-IF-kVb"/>
                         <outlet property="distanceLabel" destination="Y8J-x5-27h" id="d5T-BV-G8v"/>
                         <outlet property="mapView" destination="yF8-fr-X1f" id="XJI-M8-srE"/>
+                        <outlet property="resultLabel" destination="P35-MM-GAU" id="Xx1-gJ-qKj"/>
                         <outlet property="timeLabel" destination="Xw7-jA-vtN" id="rxO-DH-YgP"/>
                     </connections>
                 </viewController>

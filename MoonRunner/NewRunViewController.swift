@@ -24,7 +24,7 @@ class NewRunViewController: UIViewController {
     
     var seconds = maxTime
     var distance = 0.0
-    var coins = 0
+    var coins = 15
 
     // we use this locationManager to read or stop reading runner's location
     // could use kCLLocationAccuracyNearestTenMeters to save battery life
@@ -103,7 +103,7 @@ class NewRunViewController: UIViewController {
 
     func saveRun() {
         let savedRun = NSEntityDescription.insertNewObjectForEntityForName("Run", inManagedObjectContext: managedObjectContext!) as! Run
-            // savedRun.coins = coins
+        savedRun.coins = coins
         savedRun.distance = distance
         savedRun.duration = maxTime - seconds
         savedRun.timestamp = NSDate()

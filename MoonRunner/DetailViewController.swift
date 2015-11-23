@@ -10,18 +10,23 @@ class DetailViewController: UIViewController {
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var timeLabel: UILabel!
   @IBOutlet weak var distanceLabel: UILabel!
-
+  @IBOutlet weak var resultLabel: UILabel!
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     configureView()
-    /*if (run.coins == 15){
+    if (run.coins == 15){
         sendScore()
-    }*/
+        resultLabel.text = "MISSION ACCOMPLISHED!"
+        
+    } else {
+        resultLabel.text = "MISSION FAILED!"
+    }
   }
 
   func configureView() {
     // let coinsQuantity = run.coins.doubleValue
-    coinsLabel.text = "Coins Collected -  0/15"
+    coinsLabel.text = "Coins Collected -  " + String(run.coins) + "/15"
 
     let dateFormatter = NSDateFormatter()
     dateFormatter.dateStyle = .MediumStyle

@@ -83,7 +83,6 @@ class ScoreBoardViewController: UIViewController, UITableViewDataSource, UITable
                 self.scoreTable.reloadData()
             }
         }
-        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
