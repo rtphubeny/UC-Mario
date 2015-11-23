@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38EAD41D1C029BF800CDDAB2 /* ARCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4121C029BF800CDDAB2 /* ARCoordinate.m */; settings = {ASSET_TAGS = (); }; };
+		38EAD41E1C029BF800CDDAB2 /* ARGeoCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4141C029BF800CDDAB2 /* ARGeoCoordinate.m */; settings = {ASSET_TAGS = (); }; };
+		38EAD41F1C029BF800CDDAB2 /* ARKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4161C029BF800CDDAB2 /* ARKit.m */; settings = {ASSET_TAGS = (); }; };
+		38EAD4201C029BF800CDDAB2 /* AugmentedRealityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD41A1C029BF800CDDAB2 /* AugmentedRealityController.m */; settings = {ASSET_TAGS = (); }; };
+		38EAD4211C029BF800CDDAB2 /* GEOLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD41C1C029BF800CDDAB2 /* GEOLocations.m */; settings = {ASSET_TAGS = (); }; };
+		38EAD42B1C029C0400CDDAB2 /* MarkerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4241C029C0400CDDAB2 /* MarkerView.m */; settings = {ASSET_TAGS = (); }; };
+		38EAD42C1C029C0400CDDAB2 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4261C029C0400CDDAB2 /* Place.m */; settings = {ASSET_TAGS = (); }; };
+		38EAD42D1C029C0400CDDAB2 /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4281C029C0400CDDAB2 /* PlaceAnnotation.m */; settings = {ASSET_TAGS = (); }; };
+		38EAD42E1C029C0400CDDAB2 /* PlacesLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD42A1C029C0400CDDAB2 /* PlacesLoader.m */; settings = {ASSET_TAGS = (); }; };
+		38EAD4311C029C5700CDDAB2 /* FlipsideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4301C029C5700CDDAB2 /* FlipsideViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		78CE0D651AFBEA53009BBE75 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CE0D641AFBEA53009BBE75 /* Location.swift */; };
 		78CE0D671AFBEA54009BBE75 /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CE0D661AFBEA54009BBE75 /* Run.swift */; };
 		870F82631A24E70F00776E2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870F82621A24E70F00776E2F /* AppDelegate.swift */; };
@@ -33,6 +43,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38EAD4111C029BF800CDDAB2 /* ARCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCoordinate.h; sourceTree = "<group>"; };
+		38EAD4121C029BF800CDDAB2 /* ARCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARCoordinate.m; sourceTree = "<group>"; };
+		38EAD4131C029BF800CDDAB2 /* ARGeoCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARGeoCoordinate.h; sourceTree = "<group>"; };
+		38EAD4141C029BF800CDDAB2 /* ARGeoCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARGeoCoordinate.m; sourceTree = "<group>"; };
+		38EAD4151C029BF800CDDAB2 /* ARKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARKit.h; sourceTree = "<group>"; };
+		38EAD4161C029BF800CDDAB2 /* ARKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARKit.m; sourceTree = "<group>"; };
+		38EAD4171C029BF800CDDAB2 /* ARLocationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLocationDelegate.h; sourceTree = "<group>"; };
+		38EAD4181C029BF800CDDAB2 /* ARViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARViewProtocol.h; sourceTree = "<group>"; };
+		38EAD4191C029BF800CDDAB2 /* AugmentedRealityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AugmentedRealityController.h; sourceTree = "<group>"; };
+		38EAD41A1C029BF800CDDAB2 /* AugmentedRealityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AugmentedRealityController.m; sourceTree = "<group>"; };
+		38EAD41B1C029BF800CDDAB2 /* GEOLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEOLocations.h; sourceTree = "<group>"; };
+		38EAD41C1C029BF800CDDAB2 /* GEOLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEOLocations.m; sourceTree = "<group>"; };
+		38EAD4231C029C0400CDDAB2 /* MarkerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerView.h; sourceTree = "<group>"; };
+		38EAD4241C029C0400CDDAB2 /* MarkerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerView.m; sourceTree = "<group>"; };
+		38EAD4251C029C0400CDDAB2 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
+		38EAD4261C029C0400CDDAB2 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
+		38EAD4271C029C0400CDDAB2 /* PlaceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceAnnotation.h; sourceTree = "<group>"; };
+		38EAD4281C029C0400CDDAB2 /* PlaceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceAnnotation.m; sourceTree = "<group>"; };
+		38EAD4291C029C0400CDDAB2 /* PlacesLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesLoader.h; sourceTree = "<group>"; };
+		38EAD42A1C029C0400CDDAB2 /* PlacesLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesLoader.m; sourceTree = "<group>"; };
+		38EAD42F1C029C0900CDDAB2 /* UC-Mario-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UC-Mario-Bridging-Header.h"; sourceTree = "<group>"; };
+		38EAD4301C029C5700CDDAB2 /* FlipsideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipsideViewController.swift; sourceTree = "<group>"; };
 		78CE0D641AFBEA53009BBE75 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		78CE0D661AFBEA54009BBE75 /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
 		870F825D1A24E70F00776E2F /* MoonRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +103,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38EAD4101C029BF800CDDAB2 /* ARKit */ = {
+			isa = PBXGroup;
+			children = (
+				38EAD4111C029BF800CDDAB2 /* ARCoordinate.h */,
+				38EAD4121C029BF800CDDAB2 /* ARCoordinate.m */,
+				38EAD4131C029BF800CDDAB2 /* ARGeoCoordinate.h */,
+				38EAD4141C029BF800CDDAB2 /* ARGeoCoordinate.m */,
+				38EAD4151C029BF800CDDAB2 /* ARKit.h */,
+				38EAD4161C029BF800CDDAB2 /* ARKit.m */,
+				38EAD4171C029BF800CDDAB2 /* ARLocationDelegate.h */,
+				38EAD4181C029BF800CDDAB2 /* ARViewProtocol.h */,
+				38EAD4191C029BF800CDDAB2 /* AugmentedRealityController.h */,
+				38EAD41A1C029BF800CDDAB2 /* AugmentedRealityController.m */,
+				38EAD41B1C029BF800CDDAB2 /* GEOLocations.h */,
+				38EAD41C1C029BF800CDDAB2 /* GEOLocations.m */,
+			);
+			path = ARKit;
+			sourceTree = "<group>";
+		};
+		38EAD4221C029C0400CDDAB2 /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				38EAD4231C029C0400CDDAB2 /* MarkerView.h */,
+				38EAD4241C029C0400CDDAB2 /* MarkerView.m */,
+				38EAD4251C029C0400CDDAB2 /* Place.h */,
+				38EAD4261C029C0400CDDAB2 /* Place.m */,
+				38EAD4271C029C0400CDDAB2 /* PlaceAnnotation.h */,
+				38EAD4281C029C0400CDDAB2 /* PlaceAnnotation.m */,
+				38EAD4291C029C0400CDDAB2 /* PlacesLoader.h */,
+				38EAD42A1C029C0400CDDAB2 /* PlacesLoader.m */,
+			);
+			path = "Objective-C";
+			sourceTree = "<group>";
+		};
 		78CE0D631AFBEA36009BBE75 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +169,10 @@
 		870F825F1A24E70F00776E2F /* MoonRunner */ = {
 			isa = PBXGroup;
 			children = (
+				38EAD4301C029C5700CDDAB2 /* FlipsideViewController.swift */,
+				38EAD42F1C029C0900CDDAB2 /* UC-Mario-Bridging-Header.h */,
+				38EAD4221C029C0400CDDAB2 /* Objective-C */,
+				38EAD4101C029BF800CDDAB2 /* ARKit */,
 				A7AFB70C1C022AFA00290852 /* MoonRunner.xcdatamodeld */,
 				78CE0D631AFBEA36009BBE75 /* Models */,
 				870F82621A24E70F00776E2F /* AppDelegate.swift */,
@@ -259,14 +329,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38EAD42C1C029C0400CDDAB2 /* Place.m in Sources */,
+				38EAD41D1C029BF800CDDAB2 /* ARCoordinate.m in Sources */,
 				874B42151A9C344500081A45 /* NewRunViewController.swift in Sources */,
 				870F82631A24E70F00776E2F /* AppDelegate.swift in Sources */,
+				38EAD4311C029C5700CDDAB2 /* FlipsideViewController.swift in Sources */,
 				A7AFB70E1C022AFA00290852 /* MoonRunner.xcdatamodeld in Sources */,
+				38EAD41E1C029BF800CDDAB2 /* ARGeoCoordinate.m in Sources */,
 				870F826A1A24E70F00776E2F /* DetailViewController.swift in Sources */,
 				78CE0D651AFBEA53009BBE75 /* Location.swift in Sources */,
+				38EAD4201C029BF800CDDAB2 /* AugmentedRealityController.m in Sources */,
 				78CE0D671AFBEA54009BBE75 /* Run.swift in Sources */,
+				38EAD41F1C029BF800CDDAB2 /* ARKit.m in Sources */,
+				38EAD42B1C029C0400CDDAB2 /* MarkerView.m in Sources */,
+				38EAD42D1C029C0400CDDAB2 /* PlaceAnnotation.m in Sources */,
 				A7AFB7121C025A3600290852 /* PastRunsViewController.swift in Sources */,
 				8772AB5B1A26347A00613309 /* HomeViewController.swift in Sources */,
+				38EAD4211C029BF800CDDAB2 /* GEOLocations.m in Sources */,
+				38EAD42E1C029C0400CDDAB2 /* PlacesLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +477,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.UCMario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MoonRunner/UC-Mario-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -411,6 +492,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.UCMario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MoonRunner/UC-Mario-Bridging-Header.h";
 			};
 			name = Release;
 		};
