@@ -14,6 +14,9 @@ class DetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureView()
+    /*if (run.coins == 15){
+        sendScore()
+    }*/
   }
 
   func configureView() {
@@ -101,6 +104,21 @@ class DetailViewController: UIViewController {
         cancelButtonTitle: "OK").show()
     }
   }
+    func sendScore() {
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.ucmario.eu.pn")!)
+        request.HTTPMethod = "POST"
+        let postString = "score=" + String(run.duration)
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+        }
+        task!.resume()
+    }
 
 }
 

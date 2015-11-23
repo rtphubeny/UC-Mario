@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rS3-R9-Ivy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -69,6 +69,9 @@
                                 <state key="normal" title="SCOREBOARD" backgroundImage="button_color">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="MEz-Di-Cu6" kind="show" id="Rv6-5O-NpH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -158,7 +161,7 @@
                                 <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bem-Hr-44g">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bem-Hr-44g">
                                 <rect key="frame" x="0.0" y="181" width="600" height="305"/>
                                 <connections>
                                     <outlet property="delegate" destination="HWb-Gp-C7s" id="0Za-NR-COF"/>
@@ -209,6 +212,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="44d-jh-T4R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1311" y="64"/>
+        </scene>
+        <!--Score Board View Controller-->
+        <scene sceneID="7NM-ih-JBo">
+            <objects>
+                <viewController id="MEz-Di-Cu6" customClass="ScoreBoardViewController" customModule="MoonRunner" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A5u-8H-Ju2"/>
+                        <viewControllerLayoutGuide type="bottom" id="pSy-jC-sSe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="W7a-eD-rH2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Dgr-pT-Rjp">
+                                <rect key="frame" x="40" y="30" width="520" height="560"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pSy-jC-sSe" firstAttribute="top" secondItem="Dgr-pT-Rjp" secondAttribute="bottom" constant="10" id="WQd-Pm-stD"/>
+                            <constraint firstItem="Dgr-pT-Rjp" firstAttribute="top" secondItem="W7a-eD-rH2" secondAttribute="topMargin" constant="30" id="aE1-Ay-z4W"/>
+                            <constraint firstItem="Dgr-pT-Rjp" firstAttribute="leading" secondItem="W7a-eD-rH2" secondAttribute="leadingMargin" constant="20" id="lVg-ww-CsT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dgr-pT-Rjp" secondAttribute="trailing" constant="20" id="z5K-zd-wR9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scoreTable" destination="Dgr-pT-Rjp" id="mys-4o-YTg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l1s-zI-VRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="567" y="877"/>
         </scene>
         <!--Past Runs View Controller-->
         <scene sceneID="kZy-2i-eja">
