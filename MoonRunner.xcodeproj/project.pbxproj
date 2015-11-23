@@ -17,6 +17,7 @@
 		38EAD42D1C029C0400CDDAB2 /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4281C029C0400CDDAB2 /* PlaceAnnotation.m */; settings = {ASSET_TAGS = (); }; };
 		38EAD42E1C029C0400CDDAB2 /* PlacesLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD42A1C029C0400CDDAB2 /* PlacesLoader.m */; settings = {ASSET_TAGS = (); }; };
 		38EAD4311C029C5700CDDAB2 /* FlipsideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4301C029C5700CDDAB2 /* FlipsideViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		38EAD4351C02E00E00CDDAB2 /* golden_coin.png in Resources */ = {isa = PBXBuildFile; fileRef = 38EAD4341C02E00E00CDDAB2 /* golden_coin.png */; settings = {ASSET_TAGS = (); }; };
 		78CE0D651AFBEA53009BBE75 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CE0D641AFBEA53009BBE75 /* Location.swift */; };
 		78CE0D671AFBEA54009BBE75 /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CE0D661AFBEA54009BBE75 /* Run.swift */; };
 		870F82631A24E70F00776E2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870F82621A24E70F00776E2F /* AppDelegate.swift */; };
@@ -65,6 +66,7 @@
 		38EAD42A1C029C0400CDDAB2 /* PlacesLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesLoader.m; sourceTree = "<group>"; };
 		38EAD42F1C029C0900CDDAB2 /* UC-Mario-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UC-Mario-Bridging-Header.h"; sourceTree = "<group>"; };
 		38EAD4301C029C5700CDDAB2 /* FlipsideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipsideViewController.swift; sourceTree = "<group>"; };
+		38EAD4341C02E00E00CDDAB2 /* golden_coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = golden_coin.png; sourceTree = "<group>"; };
 		78CE0D641AFBEA53009BBE75 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		78CE0D661AFBEA54009BBE75 /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
 		870F825D1A24E70F00776E2F /* MoonRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +171,7 @@
 		870F825F1A24E70F00776E2F /* MoonRunner */ = {
 			isa = PBXGroup;
 			children = (
+				38EAD4341C02E00E00CDDAB2 /* golden_coin.png */,
 				38EAD4301C029C5700CDDAB2 /* FlipsideViewController.swift */,
 				38EAD42F1C029C0900CDDAB2 /* UC-Mario-Bridging-Header.h */,
 				38EAD4221C029C0400CDDAB2 /* Objective-C */,
@@ -312,6 +315,7 @@
 				A7AFB7101C02569F00290852 /* Images.xcassets in Resources */,
 				870F826D1A24E70F00776E2F /* Main.storyboard in Resources */,
 				870F82721A24E70F00776E2F /* LaunchScreen.xib in Resources */,
+				38EAD4351C02E00E00CDDAB2 /* golden_coin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
