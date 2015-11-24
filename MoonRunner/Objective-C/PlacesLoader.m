@@ -47,7 +47,7 @@ NSString * const apiKey = @"AIzaSyBvA5w2_DGlIDP3gjvwuxS3ShYY77mDELc";
 	CLLocationDegrees longitude = [location coordinate].longitude;
 	
 	NSMutableString *uri = [NSMutableString stringWithString:apiURL];
-	[uri appendFormat:@"nearbysearch/json?location=%f,%f&radius=%d&sensor=true&types=establishment&key=%@", latitude, longitude, radius, apiKey];
+	[uri appendFormat:@"nearbysearch/json?location=%f,%f&rankby=distance&sensor=true&types=point_of_interest|establishment&key=%@", latitude, longitude, apiKey];
 	
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[uri stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:20.0f];
 	

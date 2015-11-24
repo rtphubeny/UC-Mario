@@ -207,7 +207,7 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     [self setCenterLocation:newLocation];
-    NSLog(@"Location of phone changed!");
+    //NSLog(@"Location of phone changed!");
     [[self delegate] didUpdateLocation:newLocation];
     
 }
