@@ -14,7 +14,7 @@ let kAddressKey = "vicinity";
 let kLatiudeKeypath = "geometry.location.lat";
 let kLongitudeKeypath = "geometry.location.lng";
 
-class NewRunViewController: UIViewController {
+class NewRunViewController: UIViewController, FlipsideViewControllerDelegate {
     var managedObjectContext: NSManagedObjectContext?
 
     var run: Run!
@@ -27,11 +27,16 @@ class NewRunViewController: UIViewController {
 
     @IBOutlet weak var coinsLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var cameraButton: UIButton!
+    
+    var switchToCamera = false
     
     var seconds = maxTime
     var distance = 0.0
     var coins = 0
 
+    lazy var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     // we use this locationManager to read or stop reading runner's location
     // could use kCLLocationAccuracyNearestTenMeters to save battery life
     // another option is kCLLocationAccuracyBest is the users want really accurate readings
@@ -47,8 +52,8 @@ class NewRunViewController: UIViewController {
         }()
 
     lazy var locations = [CLLocation]()
-    lazy var coinLocations = [CLLocation]()
-    lazy var timer = NSTimer()
+    lazy var coinLocations = [Place]()
+    
 
     var alreadySetCoins = false
     
@@ -56,20 +61,29 @@ class NewRunViewController: UIViewController {
         
         super.viewWillAppear(animated)
 
-        startButton.hidden = false
-        promptMessage.hidden = false
-        timeLabel.hidden = true
-        distanceLabel.hidden = true
-        coinsLabel.hidden = true
-        stopButton.hidden = true
-        mapView.hidden = true
-    
+        if !switchToCamera {
+            startButton.hidden = false
+            promptMessage.hidden = false
+            timeLabel.hidden = true
+            distanceLabel.hidden = true
+            coinsLabel.hidden = true
+            stopButton.hidden = true
+            mapView.hidden = true
+            cameraButton.hidden = true
+        }
+
         locationManager.requestAlwaysAuthorization()
+        
+        switchToCamera = false
+        NSLog("appear")
     }
 
     override func viewWillDisappear(animated: Bool) {
+        NSLog("disappear!")
         super.viewWillDisappear(animated)
-        timer.invalidate()
+        if !switchToCamera {
+            appDelegate.timer!.invalidate()
+        }
     }
     
     func timeFormatter(totalSeconds: Int)->String {
@@ -106,14 +120,15 @@ class NewRunViewController: UIViewController {
                                                 }
                                                 if let resultsDict = dataObject as? NSDictionary {
                                                     let location: CLLocation = CLLocation(latitude: resultsDict.valueForKeyPath(kLatiudeKeypath)!.doubleValue, longitude: resultsDict.valueForKeyPath(kLongitudeKeypath)!.doubleValue)
-                                                    self.coinLocations.append(location)
+
                                                     if let reference = resultsDict[kReferenceKey] as? String {
                                                         if let name = resultsDict[kNameKey] as? String {
                                                             if let address = resultsDict[kAddressKey] as? String {
                                                                 let currentPlace: Place = Place(location: location, reference: reference, name: name, address: address)
-                                                                //temp.addObject(currentPlace)
+                                                                
                                                                 let annotation: PlaceAnnotation = PlaceAnnotation(place: currentPlace)
                                                                 self.mapView.addAnnotation(annotation)
+                                                                self.coinLocations.append(currentPlace)
                                                             }
                                                         }
                                                     }
@@ -143,7 +158,8 @@ class NewRunViewController: UIViewController {
         }
         
         if seconds == maxTime {
-             distance = 0.0
+            distance = 0.0
+            coins = 0
         }
         
         timeLabel.text = "Time Left - " + timeFormatter(seconds)
@@ -225,7 +241,7 @@ class NewRunViewController: UIViewController {
     coinsLabel.hidden = false
     stopButton.hidden = false
     
-    timer = NSTimer.scheduledTimerWithTimeInterval(1,
+    appDelegate.timer = NSTimer.scheduledTimerWithTimeInterval(1,
         target: self,
         selector: "runPerSecond:",
         userInfo: nil,
@@ -234,15 +250,35 @@ class NewRunViewController: UIViewController {
     // schedule an update every second
 
     mapView.hidden = false
+    cameraButton.hidden = false
   }
+    
+    @IBAction func cameraPressed(sender: AnyObject) {
+       
+    }
+    
 
   @IBAction func stopPressed(sender: AnyObject) {
     saveRun()
+    appDelegate.timer!.invalidate()
     performSegueWithIdentifier(DetailSegueName, sender: nil)
   }
 
+    func flipsideViewControllerDidFinish(controller: FlipsideViewController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if let detailViewController = segue.destinationViewController as? DetailViewController {
+    if (segue.identifier == "Flipside") {
+        NSLog("switching to the camera")
+        switchToCamera = true
+        var nextViewController = (segue.destinationViewController as! FlipsideViewController)
+  
+        nextViewController.delegate = self
+        nextViewController.locations = self.coinLocations
+        nextViewController.userLocation = mapView!.userLocation
+    }
+    else if let detailViewController = segue.destinationViewController as? DetailViewController {
       detailViewController.run = run
     }
   }
@@ -265,7 +301,6 @@ extension NewRunViewController: MKMapViewDelegate {
     // Use a golden coin as a location marker instead of the default location pin
     // Function gets called automatically when an annotation is created
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        
         var annView: MKAnnotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "currentloc")
         annView.image = UIImage(named: "golden_coin.png")
         annView.canShowCallout = true
