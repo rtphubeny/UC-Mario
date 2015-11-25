@@ -122,7 +122,7 @@ class DetailViewController: UIViewController {
                 return
             }
         }
-        task!.resume()
+        task.resume()
     }
 
 }

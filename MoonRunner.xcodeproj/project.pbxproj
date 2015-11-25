@@ -16,8 +16,8 @@
 		38EAD42C1C029C0400CDDAB2 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4261C029C0400CDDAB2 /* Place.m */; };
 		38EAD42D1C029C0400CDDAB2 /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4281C029C0400CDDAB2 /* PlaceAnnotation.m */; };
 		38EAD42E1C029C0400CDDAB2 /* PlacesLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD42A1C029C0400CDDAB2 /* PlacesLoader.m */; };
-		38EAD4371C02E36100CDDAB2 /* golden_coin.png in Resources */ = {isa = PBXBuildFile; fileRef = 38EAD4361C02E36100CDDAB2 /* golden_coin.png */; settings = {ASSET_TAGS = (); }; };
-		38EAD43A1C042A0F00CDDAB2 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4391C042A0F00CDDAB2 /* FlipsideViewController.m */; settings = {ASSET_TAGS = (); }; };
+		38EAD4371C02E36100CDDAB2 /* golden_coin.png in Resources */ = {isa = PBXBuildFile; fileRef = 38EAD4361C02E36100CDDAB2 /* golden_coin.png */; };
+		38EAD43A1C042A0F00CDDAB2 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD4391C042A0F00CDDAB2 /* FlipsideViewController.m */; };
 		78CE0D651AFBEA53009BBE75 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CE0D641AFBEA53009BBE75 /* Location.swift */; };
 		78CE0D671AFBEA54009BBE75 /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CE0D661AFBEA54009BBE75 /* Run.swift */; };
 		870F82631A24E70F00776E2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870F82621A24E70F00776E2F /* AppDelegate.swift */; };
@@ -281,7 +281,7 @@
 				TargetAttributes = {
 					870F825C1A24E70F00776E2F = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = B8WZ46JNX8;
+						DevelopmentTeam = 4SBB446236;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -343,7 +343,6 @@
 				38EAD41D1C029BF800CDDAB2 /* ARCoordinate.m in Sources */,
 				874B42151A9C344500081A45 /* NewRunViewController.swift in Sources */,
 				870F82631A24E70F00776E2F /* AppDelegate.swift in Sources */,
-				38EAD4311C029C5700CDDAB2 /* FlipsideViewController.swift in Sources */,
 				88318C921C02B59600B5EFCE /* ScoreboardViewController.swift in Sources */,
 				A7AFB70E1C022AFA00290852 /* MoonRunner.xcdatamodeld in Sources */,
 				38EAD41E1C029BF800CDDAB2 /* ARGeoCoordinate.m in Sources */,
@@ -487,7 +486,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MoonRunner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.UCMario;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.UCMario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MoonRunner/UC-Mario-Bridging-Header.h";
@@ -502,7 +501,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MoonRunner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.UCMario;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.UCMario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MoonRunner/UC-Mario-Bridging-Header.h";

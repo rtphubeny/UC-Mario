@@ -33,7 +33,7 @@ class NewRunViewController: UIViewController, FlipsideViewControllerDelegate {
     
     var seconds = maxTime
     var distance = 0.0
-    var coins = 15
+    var coins = 0
 
     lazy var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     

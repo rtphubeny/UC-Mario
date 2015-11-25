@@ -50,7 +50,7 @@ class ScoreBoardViewController: UIViewController, UITableViewDataSource, UITable
             }
         }
         
-        task!.resume()
+        task.resume()
     }
     
     override func viewDidLoad() {
