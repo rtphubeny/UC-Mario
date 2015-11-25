@@ -55,7 +55,6 @@ class PastRunsViewController: UIViewController, UITableViewDataSource {
     
     func tableView(tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
-            print (run.count)
             return run.count
     }
     
@@ -64,19 +63,15 @@ class PastRunsViewController: UIViewController, UITableViewDataSource {
         indexPath: NSIndexPath) -> UITableViewCell {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("runData")
-            
+            cell?.textLabel?.font = UIFont(name:"MarioLuigiTwo", size:22)
             let oneRun = run[indexPath.row]
             
             let dateFormatter = NSDateFormatter()
-            dateFormatter.dateStyle = .MediumStyle
+            dateFormatter.dateStyle = .ShortStyle
             // dateLabel.text = dateFormatter.stringFromDate(run.timestamp)
-            var displayText = String.localizedStringWithFormat("%d%@", (oneRun.valueForKey("coins") as? Int)!, "/15 collected in ")
+            var displayText = String.localizedStringWithFormat("%d%@", (oneRun.valueForKey("coins") as? Int)!, "/15 in ")
             displayText += timeFormatter((oneRun.valueForKey("duration") as? Int)!)
             displayText += " on " + dateFormatter.stringFromDate((oneRun.valueForKey("timestamp") as? NSDate)!)
-            print(oneRun.valueForKey("timestamp") as? NSDate)
-            print(oneRun.valueForKey("distance") as? Float)
-            print(oneRun.valueForKey("duration") as? Int)
-            print(oneRun.valueForKey("coins") as? Int)
             
             cell!.textLabel!.text = displayText
             return cell!

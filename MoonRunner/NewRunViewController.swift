@@ -6,7 +6,7 @@ import MapKit
 
 let DetailSegueName = "RunDetails"
 let maxTime = 100
-let appColor = UIColor(red:0.99, green:0.36, blue:0.39, alpha:1.0)
+let appColor = UIColor(red:0.96, green:0.35, blue:0.31, alpha:1.0)
 
 let kNameKey = "name";
 let kReferenceKey = "reference";

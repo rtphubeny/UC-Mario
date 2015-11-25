@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rS3-R9-Ivy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="MarioLuigi2.ttf">
+            <string>MarioLuigiTwo</string>
+            <string>MarioLuigiTwo</string>
+            <string>MarioLuigiTwo</string>
+            <string>MarioLuigiTwo</string>
+            <string>MarioLuigiTwo</string>
+            <string>MarioLuigiTwo</string>
+            <string>MarioLuigiTwo</string>
+            <string>MarioLuigiTwo</string>
+            <string>MarioLuigiTwo</string>
+            <string>MarioLuigiTwo</string>
+            <string>MarioLuigiTwo</string>
+            <string>MarioLuigiTwo</string>
+            <string>MarioLuigiTwo</string>
+            <string>MarioLuigiTwo</string>
+            <string>MarioLuigiTwo</string>
+            <string>MarioLuigiTwo</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Master-->
         <scene sceneID="cUi-kZ-frf">
@@ -26,7 +46,7 @@
         <!--Home-->
         <scene sceneID="Vr2-Me-d0g">
             <objects>
-                <viewController title="Home" id="MUu-vS-6fX" customClass="HomeViewController" customModule="MoonRunner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home" id="MUu-vS-6fX" customClass="HomeViewController" customModule="UCMario" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="p8G-TA-ty3"/>
                         <viewControllerLayoutGuide type="bottom" id="5BI-Ho-mbZ"/>
@@ -38,8 +58,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBi-wt-Ei6">
                                 <rect key="frame" x="36" y="352" width="528" height="152"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="PAST RUNS" backgroundImage="button_color">
+                                <color key="backgroundColor" red="0.62352941176470589" green="0.80392156862745101" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="MarioLuigiTwo" family="MarioLuigi2" pointSize="20"/>
+                                <state key="normal" title="PAST RUNS">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -49,54 +70,66 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywk-fA-rsi">
                                 <rect key="frame" x="36" y="229" width="528" height="182"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="START" backgroundImage="button_color">
+                                <color key="backgroundColor" red="0.62352941176470589" green="0.80392156862745101" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="MarioLuigiTwo" family="MarioLuigi2" pointSize="20"/>
+                                <state key="normal" title="START">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="HWb-Gp-C7s" kind="show" id="Wey-cr-KUD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="UCMario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obt-Bk-tdd">
-                                <rect key="frame" x="215" y="155" width="170" height="66"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
-                                <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gqp-Pd-8oE">
                                 <rect key="frame" x="36" y="460" width="528" height="152"/>
                                 <animations/>
+                                <color key="backgroundColor" red="0.14117647058823529" green="0.60784313725490191" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="IKy-7g-Pb2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="SCOREBOARD" backgroundImage="button_color">
+                                <fontDescription key="fontDescription" name="MarioLuigiTwo" family="MarioLuigi2" pointSize="20"/>
+                                <state key="normal" title="SCOREBOARD">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="MEz-Di-Cu6" kind="show" id="Rv6-5O-NpH"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="UCMario" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obt-Bk-tdd">
+                                <rect key="frame" x="201" y="110" width="198" height="66"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="MarioLuigiTwo" family="MarioLuigi2" pointSize="50"/>
+                                <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Gqp-Pd-8oE" firstAttribute="height" secondItem="SBi-wt-Ei6" secondAttribute="height" id="2Gt-OO-pFt"/>
-                            <constraint firstItem="Obt-Bk-tdd" firstAttribute="leading" secondItem="Bqd-DV-DRx" secondAttribute="leadingMargin" constant="85" id="3AU-Db-cbV"/>
+                            <constraint firstItem="Obt-Bk-tdd" firstAttribute="leading" secondItem="Bqd-DV-DRx" secondAttribute="leadingMargin" constant="65" id="3AU-Db-cbV"/>
                             <constraint firstItem="Gqp-Pd-8oE" firstAttribute="top" secondItem="SBi-wt-Ei6" secondAttribute="bottom" constant="20" id="7wF-EN-oo1"/>
+                            <constraint firstItem="ywk-fA-rsi" firstAttribute="top" secondItem="Obt-Bk-tdd" secondAttribute="bottom" constant="80" id="9N1-9p-yJt"/>
                             <constraint firstItem="SBi-wt-Ei6" firstAttribute="top" secondItem="ywk-fA-rsi" secondAttribute="bottom" constant="20" id="GMo-pO-oU0"/>
                             <constraint firstItem="Gqp-Pd-8oE" firstAttribute="leading" secondItem="SBi-wt-Ei6" secondAttribute="leading" id="HUh-fI-1Eq"/>
                             <constraint firstItem="SBi-wt-Ei6" firstAttribute="leading" secondItem="ywk-fA-rsi" secondAttribute="leading" id="Hc1-99-1GI"/>
                             <constraint firstItem="SBi-wt-Ei6" firstAttribute="height" secondItem="ywk-fA-rsi" secondAttribute="height" id="NkF-Hl-ETL"/>
                             <constraint firstItem="5BI-Ho-mbZ" firstAttribute="top" secondItem="Gqp-Pd-8oE" secondAttribute="bottom" constant="20" id="QH0-do-HWL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Obt-Bk-tdd" secondAttribute="trailing" constant="85" id="S73-sa-pyM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Obt-Bk-tdd" secondAttribute="trailing" constant="65" id="S73-sa-pyM"/>
                             <constraint firstItem="Gqp-Pd-8oE" firstAttribute="trailing" secondItem="SBi-wt-Ei6" secondAttribute="trailing" id="S7l-jt-5We"/>
                             <constraint firstItem="ywk-fA-rsi" firstAttribute="top" relation="greaterThanOrEqual" secondItem="p8G-TA-ty3" secondAttribute="bottom" constant="60" id="Y2h-gB-ynV"/>
+                            <constraint firstItem="Obt-Bk-tdd" firstAttribute="centerX" secondItem="Bqd-DV-DRx" secondAttribute="centerX" id="ZLE-9x-XdA"/>
                             <constraint firstItem="Gqp-Pd-8oE" firstAttribute="leading" secondItem="Bqd-DV-DRx" secondAttribute="leadingMargin" constant="20" id="eaY-u7-fj9"/>
+                            <constraint firstItem="Obt-Bk-tdd" firstAttribute="centerY" secondItem="Bqd-DV-DRx" secondAttribute="centerY" id="hUd-xl-XYR"/>
                             <constraint firstItem="SBi-wt-Ei6" firstAttribute="trailing" secondItem="ywk-fA-rsi" secondAttribute="trailing" id="pBC-aq-Fev"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Gqp-Pd-8oE" secondAttribute="trailing" constant="20" id="wPY-gn-fuK"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="3AU-Db-cbV"/>
+                                <exclude reference="S73-sa-pyM"/>
+                                <exclude reference="hUd-xl-XYR"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="h86-gJ-Z9V"/>
                 </viewController>
@@ -107,7 +140,7 @@
         <!--New Run View Controller-->
         <scene sceneID="hW2-je-NoA">
             <objects>
-                <viewController id="HWb-Gp-C7s" customClass="NewRunViewController" customModule="MoonRunner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HWb-Gp-C7s" customClass="NewRunViewController" customModule="UCMario" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Bn-kN-Hn4"/>
                         <viewControllerLayoutGuide type="bottom" id="OvH-G5-d73"/>
@@ -119,25 +152,26 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Distance - " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ldw-Fa-Ji4">
                                 <rect key="frame" x="16" y="84" width="84" height="21"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="MarioLuigiTwo" family="MarioLuigi2" pointSize="17"/>
+                                <color key="textColor" red="0.93333333330000001" green="0.25098039220000001" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Time Left - " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljO-dL-wjw">
                                 <rect key="frame" x="16" y="112" width="89" height="21"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="MarioLuigiTwo" family="MarioLuigi2" pointSize="17"/>
+                                <color key="textColor" red="0.93333333330000001" green="0.25098039220000001" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJ9-OY-8eI">
                                 <rect key="frame" x="56" y="485" width="488" height="124"/>
                                 <animations/>
+                                <color key="backgroundColor" red="0.98039215686274506" green="0.6705882352941176" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="Are-U7-MMN"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="STOP" backgroundImage="button_color">
+                                <fontDescription key="fontDescription" name="MarioLuigiTwo" family="MarioLuigi2" pointSize="20"/>
+                                <state key="normal" title="STOP">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -147,13 +181,12 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZF7-2I-IAm">
                                 <rect key="frame" x="56" y="406" width="488" height="88"/>
                                 <animations/>
+                                <color key="backgroundColor" red="0.62352941176470589" green="0.80392156862745101" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="NcY-f7-Fbp"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <state key="normal" title="GO!" backgroundImage="button_color">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                                <fontDescription key="fontDescription" name="MarioLuigiTwo" family="MarioLuigi2" pointSize="25"/>
+                                <state key="normal" title="GO!"/>
                                 <connections>
                                     <action selector="startPressed:" destination="HWb-Gp-C7s" eventType="touchUpInside" id="yYF-LR-8dJ"/>
                                 </connections>
@@ -162,24 +195,17 @@
                                 <rect key="frame" x="0.0" y="227" width="568" height="97"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="MarioLuigiTwo" family="MarioLuigi2" pointSize="30"/>
+                                <color key="textColor" red="0.93333333333333335" green="0.25098039215686274" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Coins Collected - " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XE4-hw-Nvy">
                                 <rect key="frame" x="16" y="141" width="137" height="21"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="MarioLuigiTwo" family="MarioLuigi2" pointSize="17"/>
+                                <color key="textColor" red="0.93333333330000001" green="0.25098039220000001" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bem-Hr-44g">
-                                <rect key="frame" x="0.0" y="181" width="600" height="305"/>
-                                <animations/>
-                                <connections>
-                                    <outlet property="delegate" destination="HWb-Gp-C7s" id="0Za-NR-COF"/>
-                                </connections>
-                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfS-92-bHn">
                                 <rect key="frame" x="509" y="84" width="71" height="30"/>
                                 <animations/>
@@ -187,9 +213,9 @@
                                     <constraint firstAttribute="width" constant="71" id="Ctb-40-lKs"/>
                                     <constraint firstAttribute="height" constant="30" id="nzT-aZ-vva"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="MarioLuigiTwo" family="MarioLuigi2" pointSize="17"/>
                                 <state key="normal" title="Camera">
-                                    <color key="titleColor" red="0.9882352941176471" green="0.25098039215686274" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.93333333330000001" green="0.25098039220000001" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="cameraPressed:" destination="HWb-Gp-C7s" eventType="touchUpInside" id="iSD-7N-o1x"/>
@@ -198,12 +224,20 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bem-Hr-44g">
+                                <rect key="frame" x="-6" y="325" width="600" height="305"/>
+                                <animations/>
+                                <connections>
+                                    <outlet property="delegate" destination="HWb-Gp-C7s" id="0Za-NR-COF"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="VJ9-OY-8eI" firstAttribute="leading" secondItem="ojN-4C-6WV" secondAttribute="leadingMargin" constant="40" id="6Fc-qK-TcM"/>
                             <constraint firstItem="ZF7-2I-IAm" firstAttribute="trailing" secondItem="VJ9-OY-8eI" secondAttribute="trailing" id="6Pg-YS-z8o"/>
+                            <constraint firstItem="Ccj-g8-niV" firstAttribute="centerX" secondItem="ojN-4C-6WV" secondAttribute="centerX" id="7KC-Eb-1Kg"/>
                             <constraint firstItem="ZF7-2I-IAm" firstAttribute="leading" secondItem="VJ9-OY-8eI" secondAttribute="leading" id="7r2-8T-1eB"/>
                             <constraint firstItem="Ldw-Fa-Ji4" firstAttribute="top" secondItem="3Bn-kN-Hn4" secondAttribute="bottom" constant="20" id="89K-w7-6ea"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VJ9-OY-8eI" secondAttribute="trailing" constant="40" id="9pq-GW-0ot"/>
@@ -230,6 +264,8 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Vcu-nA-BOc"/>
+                                <exclude reference="iW1-XW-uWr"/>
+                                <exclude reference="pGF-hR-IX6"/>
                             </mask>
                         </variation>
                     </view>
@@ -252,7 +288,7 @@
         <!--Score Board View Controller-->
         <scene sceneID="7NM-ih-JBo">
             <objects>
-                <viewController id="MEz-Di-Cu6" customClass="ScoreBoardViewController" customModule="MoonRunner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MEz-Di-Cu6" customClass="ScoreBoardViewController" customModule="UCMario" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A5u-8H-Ju2"/>
                         <viewControllerLayoutGuide type="bottom" id="pSy-jC-sSe"/>
@@ -285,7 +321,7 @@
         <!--Past Runs View Controller-->
         <scene sceneID="kZy-2i-eja">
             <objects>
-                <viewController id="v8I-hk-cT6" customClass="PastRunsViewController" customModule="MoonRunner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="v8I-hk-cT6" customClass="PastRunsViewController" customModule="UCMario" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6q0-Iv-btE"/>
                         <viewControllerLayoutGuide type="bottom" id="XU3-IS-YV9"/>
@@ -317,7 +353,7 @@
         <!--Detail View Controller-->
         <scene sceneID="Cn3-H9-jdl">
             <objects>
-                <viewController id="Ah7-4n-0Wa" customClass="DetailViewController" customModule="MoonRunner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ah7-4n-0Wa" customClass="DetailViewController" customModule="UCMario" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cIm-e0-J51"/>
                         <viewControllerLayoutGuide type="bottom" id="a0L-h9-sNL"/>
@@ -326,8 +362,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yF8-fr-X1f">
-                                <rect key="frame" x="0.0" y="64" width="600" height="400"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Route Taken" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8J-x5-27h">
+                                <rect key="frame" x="227" y="474" width="147" height="30"/>
+                                <fontDescription key="fontDescription" name="MarioLuigiTwo" family="MarioLuigi2" pointSize="25"/>
+                                <color key="textColor" red="0.93333333330000001" green="0.25098039220000001" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Time - " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xw7-jA-vtN">
+                                <rect key="frame" x="20" y="551" width="55" height="21"/>
+                                <fontDescription key="fontDescription" name="MarioLuigiTwo" family="MarioLuigi2" pointSize="17"/>
+                                <color key="textColor" red="0.93333333330000001" green="0.25098039220000001" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Coins Collected - " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4l-Bc-2yh">
+                                <rect key="frame" x="20" y="580" width="138" height="0.0"/>
+                                <fontDescription key="fontDescription" name="MarioLuigiTwo" family="MarioLuigi2" pointSize="17"/>
+                                <color key="textColor" red="0.93333333330000001" green="0.25098039220000001" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-A2-7yQ">
+                                <rect key="frame" x="282" y="512" width="59" height="30"/>
+                                <fontDescription key="fontDescription" name="MarioLuigiTwo" family="MarioLuigi2" pointSize="17"/>
+                                <color key="textColor" red="0.93333333330000001" green="0.25098039220000001" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P35-MM-GAU">
+                                <rect key="frame" x="300" y="570" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="MarioLuigiTwo" family="MarioLuigi2" pointSize="17"/>
+                                <color key="textColor" red="0.92549019607843142" green="0.17254901960784313" blue="0.23921568627450981" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yF8-fr-X1f">
+                                <rect key="frame" x="0.0" y="33" width="600" height="400"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="XER-SO-NQB"/>
@@ -336,52 +402,22 @@
                                     <outlet property="delegate" destination="Ah7-4n-0Wa" id="GRR-pk-ZFW"/>
                                 </connections>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Route Taken" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8J-x5-27h">
-                                <rect key="frame" x="226.5" y="474" width="147" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Time - " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xw7-jA-vtN">
-                                <rect key="frame" x="20" y="549.5" width="54.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Coins Collected - " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4l-Bc-2yh">
-                                <rect key="frame" x="20" y="580" width="137.5" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-A2-7yQ">
-                                <rect key="frame" x="282" y="524" width="36" height="5.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.95294117649999999" green="0.27058823529999998" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P35-MM-GAU">
-                                <rect key="frame" x="300" y="590" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.92549019607843142" green="0.17254901960784313" blue="0.23921568627450981" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="yF8-fr-X1f" firstAttribute="top" secondItem="cIm-e0-J51" secondAttribute="bottom" id="3Jw-uD-UHd"/>
                             <constraint firstItem="XPH-A2-7yQ" firstAttribute="centerX" secondItem="Y8J-x5-27h" secondAttribute="centerX" id="7t3-Ax-M7n"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="P35-MM-GAU" secondAttribute="bottom" constant="10" id="GQl-4M-iHx"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="P35-MM-GAU" secondAttribute="bottom" constant="30" id="GQl-4M-iHx"/>
                             <constraint firstItem="yF8-fr-X1f" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leading" id="Ro0-4V-7iQ"/>
                             <constraint firstItem="M4l-Bc-2yh" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leadingMargin" id="TBf-1Z-WVh"/>
                             <constraint firstItem="P35-MM-GAU" firstAttribute="centerX" secondItem="MMQ-IT-qOo" secondAttribute="centerX" id="UUD-z2-IYr"/>
                             <constraint firstItem="M4l-Bc-2yh" firstAttribute="top" secondItem="Xw7-jA-vtN" secondAttribute="bottom" constant="10" id="aNP-0j-r1d"/>
-                            <constraint firstItem="XPH-A2-7yQ" firstAttribute="top" secondItem="Y8J-x5-27h" secondAttribute="bottom" constant="20" id="bXc-Nk-r5N"/>
+                            <constraint firstItem="XPH-A2-7yQ" firstAttribute="top" secondItem="Y8J-x5-27h" secondAttribute="bottom" constant="15" id="bXc-Nk-r5N"/>
                             <constraint firstItem="M4l-Bc-2yh" firstAttribute="leading" secondItem="Xw7-jA-vtN" secondAttribute="leading" id="gdE-Yt-9Fa"/>
-                            <constraint firstItem="Xw7-jA-vtN" firstAttribute="top" secondItem="XPH-A2-7yQ" secondAttribute="bottom" constant="20" id="gem-ME-RpH"/>
+                            <constraint firstItem="Xw7-jA-vtN" firstAttribute="top" secondItem="XPH-A2-7yQ" secondAttribute="bottom" constant="10" id="gem-ME-RpH"/>
                             <constraint firstAttribute="trailing" secondItem="yF8-fr-X1f" secondAttribute="trailing" id="pd7-7I-53f"/>
-                            <constraint firstItem="a0L-h9-sNL" firstAttribute="top" relation="greaterThanOrEqual" secondItem="M4l-Bc-2yh" secondAttribute="bottom" constant="20" id="ryM-Ni-IaU"/>
+                            <constraint firstItem="a0L-h9-sNL" firstAttribute="top" relation="greaterThanOrEqual" secondItem="M4l-Bc-2yh" secondAttribute="bottom" constant="40" id="ryM-Ni-IaU"/>
                             <constraint firstAttribute="centerX" secondItem="XPH-A2-7yQ" secondAttribute="centerX" id="s6F-H3-It6"/>
                             <constraint firstItem="Y8J-x5-27h" firstAttribute="top" secondItem="yF8-fr-X1f" secondAttribute="bottom" constant="10" id="xTu-TN-VfA"/>
                         </constraints>
@@ -440,8 +476,5 @@
             <point key="canvasLocation" x="2031" y="773"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="button_color" width="630" height="354"/>
-    </resources>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

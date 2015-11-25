@@ -91,23 +91,18 @@ class ScoreBoardViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) ->   UITableViewCell {
         let cell = UITableViewCell()
-        let label = UILabel(frame: CGRect(x:0, y:0, width:200, height:25))
+        var label = ""
         
         let score = DBscores[indexPath.row]
         
         if (score == ""){
-            label.text = score
+            label = score
         } else {
-            label.text = timeFormatter(Int(score)!)
+            label = timeFormatter(Int(score)!)
         }
-        label.textColor = UIColor.blackColor()
-        cell.addSubview(label)
+        cell.textLabel?.font = UIFont(name:"MarioLuigiTwo", size:22)
+        cell.textLabel!.text = label
         cell.backgroundColor = UIColor.whiteColor()
         return cell
     }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return scoreTable.frame.size.height / 10;
-    }
-    
 }
